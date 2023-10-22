@@ -16,12 +16,20 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="Back_End" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="WebRootConfig" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/lk/ijse/carRentalSystem/config/WebRootConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/lk/ijse/carRentalSystem/config/WebAppConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/lk/ijse/carRentalSystem/config/JPAConfig.java</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">

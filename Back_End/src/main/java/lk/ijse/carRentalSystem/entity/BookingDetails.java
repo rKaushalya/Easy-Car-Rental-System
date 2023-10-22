@@ -16,15 +16,15 @@ public class BookingDetails {
     @EmbeddedId
     private BookingDetailsPK bookingDetailsPK;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "bookingId", insertable = false, updatable = false)
     private Booking booking;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "registerNo", insertable = false, updatable = false)
     private Vehicle vehicle;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Driver driver;
 
     private Date carBookDate;

@@ -25,15 +25,15 @@ header ul>li>a{
     text-decoration: none;
     color: white;
 }
-table{
+#indexForm table{
     position: relative;
     top: 80px;
 }
-#div1{
+#indexForm #div1{
     position: relative;
     top: 60px;
 }
-main h1{
+#indexForm h1{
     position: relative;
     top: 40px;
     color: #6c757d;

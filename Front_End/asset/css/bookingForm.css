@@ -4,3 +4,69 @@
 *{
     font-family: myFirstFont;
 }
+header{
+    position: fixed;
+    width: 100%;
+    background: #1048ad;
+    height: 60px;
+    z-index: 1;
+}
+header h1{
+    left: 120px;
+    font-size: 24px;
+}
+header ul{
+    position: relative;
+    right: 120px;
+}
+header ul>li{
+    display: inline-block;
+    margin-left: 20px;
+}
+header ul>li>a{
+    margin-left: 5px;
+    text-decoration: none;
+    color: white;
+}
+#bookingForm{
+    background-color: #efefef;
+    height: 110vh;
+}
+#bookingForm>div{
+    position: relative;
+    top: 80px;
+    background-color: white;
+}
+#bookingForm img{
+    position: relative;
+    top: 80px;
+    height: 300px;
+}
+#bookingForm h1{
+    position: relative;
+    top: 80px;
+    font-size: 32px;
+    font-family: Arial;
+    right: 220px;
+}
+#bookingForm h2{
+    position: relative;
+    top: 80px;
+    font-size: 18px;
+    font-family: myFirstFont;
+    right: 215px;
+}
+#bookingForm h3{
+    position: relative;
+    top: 110px;
+    font-size: 42px;
+}
+#bookingForm table{
+    position: relative;
+    top: 130px;
+}
+#bookingForm form{
+    position: relative;
+    top: -110px;
+    background-color: #efefef;
+}

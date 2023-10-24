@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/loginForm.css">
+    <link rel="stylesheet" href="../frontawesome/css/all.css">
+</head>
+<body>
+<header class="jumbotron bg-primary text-white p-3">
+    <h1 class="position-absolute" id="nav">Eazy Car Rental</h1>
+    <ul class="list-group list-group-horizontal text-primary justify-content-end font-weight-bold">
+        <li class="list-group-item bg-white"id="lnkHome"><i class="fa-solid fa-house"></i><a href="#">Home</a></li>
+        <li class="list-group-item bg-white" id="lnkCustomer"><i class="fa fa-car" aria-hidden="true"></i><a href="#">My Booking</a></li>
+        <li class="list-group-item bg-white" id="lnkItem"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="#">Sing in</a></li>
+        <li class="list-group-item bg-white" id="lnkOrders"><i class="fa-solid fa-address-book"></i><a href="#">Contact Us</a></li>
+    </ul>
+</header>
+
+<main>
+    <section class="container">
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword4">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress2" class="form-label">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">State</label>
+                <select id="inputState" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Check me out
+                    </label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

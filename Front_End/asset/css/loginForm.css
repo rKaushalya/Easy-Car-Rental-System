@@ -1,6 +1,78 @@
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
-@import url('https://fonts.googleapis.com/css?family=Anton');
-
 *{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "poppins", sans-serif;
+}
+header{
+    background: #1048ad;
+    height: 60px;
+}
+header h1{
+    left: 120px;
+    font-size: 24px;
+}
+header ul{
+    position: relative;
+    right: 120px;
+}
+header ul>li{
+    display: inline-block;
+    margin-left: 20px;
+}
+header ul>li>a{
+    margin-left: 5px;
+    text-decoration: none;
+    color: white;
+}
+#loginForm>section{
+    position: relative;
+    height: 30vh;
+    width: 30vw;
+    top: 100px;
+    background: transparent;
+}
+#loginForm{
+    height: 92vh;
+    background: url("../img/Budget-rent-a-car-coast.jpg");
+    background-position: center;
+    background-size: cover;
+}
+#loginForm form{
+    border: 1px solid rgba(255, 255, 255, .2);
+    width: 25vw;
+    position: absolute;
+    top: 10%;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+#loginForm form h1{
+    position: relative;
+    left: 33%;
+    color: white;
+}
+#loginForm form button{
+    position: relative;
+    left: 40%;
+    background: #1048ad;
+}
+#loginForm form a{
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+}
+#loginForm form #last{
+    position: relative;
+    left: 20%;
+}
+#loginForm form input{
+    background: transparent;
+    outline-color: black;
+}
+#loginForm form label{
+    color: white;
+}
+#loginForm form p{
+    color: white;
 }

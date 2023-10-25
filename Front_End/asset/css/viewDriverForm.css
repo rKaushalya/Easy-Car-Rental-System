@@ -1,0 +1,43 @@
+*{
+    font-family: myFirstFont;
+}
+header{
+    background: #1048ad;
+    height: 70px;
+}
+header h1{
+    left: 120px;
+    font-size: 24px;
+}
+header ul{
+    position: relative;
+    right: 120px;
+}
+header ul>li{
+    display: inline-block;
+    margin-left: 20px;
+}
+header ul>li>a{
+    margin-left: 5px;
+    text-decoration: none;
+    color: white;
+}
+#viewDriverForm form{
+   width: 50vw;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#viewDriverForm table{
+    position: relative;
+    top: 30px;
+}
+#viewDriverForm button{
+    width: 50%;
+}
+#viewDriverForm #driverId{
+    position: absolute;
+    right: 50%;
+    top: 10%;
+}

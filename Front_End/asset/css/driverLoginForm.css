@@ -1,0 +1,38 @@
+*{
+    font-family: myFirstFont;
+}
+header{
+    background: #1048ad;
+    height: 70px;
+}
+header h1{
+    left: 120px;
+    font-size: 24px;
+}
+header ul{
+    position: relative;
+    right: 120px;
+}
+header ul>li{
+    display: inline-block;
+    margin-left: 20px;
+}
+header ul>li>a{
+    margin-left: 5px;
+    text-decoration: none;
+    color: white;
+}
+#driverLogin{
+    background-color: #efefef;
+    height: 92vh;
+}
+#driverLogin form{
+    position: relative;
+    top: 100px;
+    width: 30vw;
+    left: 27vw;
+    background-color: white;
+    height: 45vh;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}

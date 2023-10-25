@@ -1,38 +1,11 @@
 
-*{
-    font-family: myFirstFont;
-}
-header{
-    position: fixed;
-    width: 100%;
-    background: #1048ad;
-    height: 70px;
-    z-index: 1;
-}
-header h1{
-    left: 120px;
-    font-size: 24px;
-}
-header ul{
-    position: relative;
-    right: 120px;
-}
-header ul>li{
-    display: inline-block;
-    margin-left: 20px;
-}
-header ul>li>a{
-    margin-left: 5px;
-    text-decoration: none;
-    color: white;
-}
 #customerForm{
     position: relative;
-    top: 70px;
+    top: 60px;
     background: url("../img/slide-alternate-1-1.jpg");
     background-size: cover;
     background-position: center;
-    height: 90.8vh;
+    height: 92vh;
 }
 #customerForm h1{
     position: relative;

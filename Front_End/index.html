@@ -6,19 +6,23 @@
     <meta content="width=device-width initial-scale=1" name="viewport">
     <link rel="stylesheet" href="asset/css/normalize.css">
     <link rel="stylesheet" href="asset/Bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="asset/frontawesome/css/all.css">
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/customerForm.css">
+    <link rel="stylesheet" href="asset/css/bookingForm.css">
+    <link rel="stylesheet" href="asset/css/loginForm.css">
 </head>
 <body>
 <header class="jumbotron text-white p-3">
     <h1 class="position-absolute" id="nav">Eazy Car Rental</h1>
     <ul class="list-group list-group-horizontal justify-content-end font-weight-bold">
         <li id="lnkHome"><i class="fa-solid fa-house"></i><a href="#">Home</a></li>
-        <li id="lnkCustomer"><i class="fa fa-car" aria-hidden="true"></i><a href="#">My Booking</a></li>
-        <li id="lnkItem"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="#">Sing in</a></li>
-        <li id="lnkOrders"><i class="fa-solid fa-address-book"></i><a href="#">Contact Us</a></li>
+        <li id="lnkBooking"><i class="fa fa-car" aria-hidden="true"></i><a href="#">My Booking</a></li>
+        <li id="lnkSingIn"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="#">Sing in</a></li>
+        <li id="lnkContact"><i class="fa-solid fa-address-book"></i><a href="#">Contact Us</a></li>
     </ul>
 </header>
+
 <main id="indexForm">
     <section class="container">
         <h1>We have more than 500 Vehicles for rent.</h1>
@@ -80,7 +84,179 @@
     </section>
 </main>
 
+<main id="customerForm">
+    <section class="container text-center">
+        <h1>Register</h1>
+        <form class="row g-3">
+            <div class="col-8">
+                <label for="cusId" class="form-label">Customer Id</label>
+                <input type="text" class="form-control" id="cusId">
+            </div>
+            <div class="col-4">
+                <img src="asset/img/noImage.jpg" alt="Customer NIC" style="height: 200px">
+            </div>
+            <div class="col-8">
+                <label for="cusName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="cusName">
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <label for="cusEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="cusEmail">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="cusPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="cusPassword" required>
+            </div>
+            <div class="col-6">
+                <label for="cusAddress" class="form-label">Address</label>
+                <input type="text" class="form-control" id="cusAddress" placeholder="1234 Main St">
+            </div>
+            <div class="col-4">
+                <label for="cusContact" class="form-label">Contact No</label>
+                <input type="tel" class="form-control" id="cusContact">
+            </div>
+            <div class="col-md-4">
+                <label for="cusNIC" class="form-label">NIC no</label>
+                <input type="text" class="form-control" id="cusNIC">
+            </div>
+            <div class="col-md-4">
+                <label for="cusNICPhoto" class="form-label">NIC Photo</label>
+                <input type="file" class="form-control" id="cusNICPhoto">
+            </div>
+            <div style="height: 15px"></div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-outline-primary">Register</button>
+            </div>
+        </form>
+    </section>
+</main>
+
+<main id="bookingForm">
+    <div class="container text-center">
+        <div class="row row-cols-2">
+            <div class="col">
+                <img src="asset/img/depositphotos_3532666-stock-photo-color-bar.jpg" class="img-fluid" alt="this is car image.!">
+            </div>
+            <div class="col">
+                <h1>Reservation</h1>
+                <h2>Book your vehicle today</h2>
+                <h4>Customer Id</h4>
+            </div>
+            <div class="col">
+                <h3>name</h3>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Daily Rate</th>
+                        <th scope="col">Monthly Rate</th>
+                        <th scope="col">For Extra KM</th>
+                        <th scope="col">Free Mileage</th>
+                        <th scope="col">Transmission Type</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col" style="width: 600px">
+                <form class="row g-3">
+                    <div class="col-md-6">
+                        <label for="bookingId" class="form-label">Booking Id</label>
+                        <input type="email" class="form-control" id="bookingId">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="bLocation" class="form-label">Location</label>
+                        <input type="password" class="form-control" id="bLocation" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="bDate" class="form-label">Booking Date</label>
+                        <input type="date" class="form-control" id="bDate" placeholder="1234 Main St">
+                    </div>
+                    <div class="col-6">
+                        <label for="bPickupDate" class="form-label">Pickup Date</label>
+                        <input type="date" class="form-control" id="bPickupDate" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="bLossDamagePrice" class="form-label">Loss Damage Price</label>
+                        <input type="text" class="form-control" id="bLossDamagePrice">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">State</label>
+                        <select id="inputState" class="form-select">
+                            <option selected>Online</option>
+                            <option>physical</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">Do you want Driver</label>
+                        <select id="inputStat" class="form-select">
+                            <option selected>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputZip" class="form-label">Bank Slip</label>
+                        <input type="file" class="form-control" id="inputZip">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputZip" class="form-label">Total Price</label>
+                        <input type="number" class="form-control" id="inputZi">
+                    </div>
+                    <div class="col-8">
+                        <div class="form-check">
+                            <label class="form-check-label" for="gridCheck"><input class="form-check-input" type="checkbox" id="bCheck">
+                                Agree all therms and condition
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-outline-primary">Sent Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<main id="loginForm">
+    <section class="container">
+        <form class="row g-3">
+            <h1>Login</h1>
+            <div class="col-md-12">
+                <label for="cusLoginEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="cusLoginEmail">
+            </div>
+            <div class="col-md-12">
+                <label for="cusLoginPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="cusLoginPassword">
+            </div>
+            <div class="col-md-6">
+                <label class="form-check-label" for="gridCheck"><input class="form-check-input" type="checkbox" id="gridCheck">
+                    Remember me
+                </label>
+            </div>
+            <div class="col-md-6">
+                <a href="#">Forget Password?</a>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+            <div id="last" class="col-12">
+                <p>Don't Have an Account? <a id="lnkRegister" href="#">Register</a></p>
+            </div>
+        </form>
+    </section>
+</main>
+
 <script src="asset/js/jquery-3.6.1.min.js"></script>
 <script src="asset/Bootstrap/js/bootstrap.bundle.js"></script>
+<script src="controller/navigationController.js"></script>
 </body>
 </html>

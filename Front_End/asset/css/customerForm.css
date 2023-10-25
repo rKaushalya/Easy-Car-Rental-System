@@ -1,0 +1,68 @@
+
+*{
+    font-family: myFirstFont;
+}
+header{
+    position: fixed;
+    width: 100%;
+    background: #1048ad;
+    height: 70px;
+    z-index: 1;
+}
+header h1{
+    left: 120px;
+    font-size: 24px;
+}
+header ul{
+    position: relative;
+    right: 120px;
+}
+header ul>li{
+    display: inline-block;
+    margin-left: 20px;
+}
+header ul>li>a{
+    margin-left: 5px;
+    text-decoration: none;
+    color: white;
+}
+#customerForm{
+    position: relative;
+    top: 70px;
+    background: url("../img/slide-alternate-1-1.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 90.8vh;
+}
+#customerForm h1{
+    position: relative;
+    top: 10px;
+    color: white;
+}
+#customerForm form{
+    position: relative;
+    left: 15%;
+    top: 40px;
+    width: 60vw;
+    height: 70vh;
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+#customerForm form img{
+    position: absolute;
+    right: 5%;
+}
+#customerForm form button{
+    position: relative;
+    bottom: 5px;
+    width: 20%;
+}
+#customerForm form input{
+    background: transparent;
+    color: #bfd1ec;
+}
+#customerForm form label{
+    color: white;
+}

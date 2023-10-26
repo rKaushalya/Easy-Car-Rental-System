@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="../Bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="../frontawesome/css/all.css">
   <link rel="stylesheet" href="../css/driverLoginForm.css">
+  <link rel="stylesheet" href="../css/driverForm.css">
 </head>
 <body>
 <header class="jumbotron text-white p-3">
@@ -21,10 +22,48 @@
         <input type="text" class="form-control" id="inputEmail4">
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-outline-primary">Login</button>
+        <button id="lnkDriverLogin" type="button" class="btn btn-outline-primary">Login</button>
       </div>
     </form>
   </section>
 </main>
+
+<main id="driverForm">
+  <section class="container">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Booking Date</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Customer Contact</th>
+        <th scope="col">Pickup date</th>
+        <th scope="col">Vehicle Name</th>
+      </tr>
+      </thead>
+      <tbody class="table-group-divider">
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script src="../../controller/navigation/DriverNavigationController.js"></script>
 </body>
 </html>

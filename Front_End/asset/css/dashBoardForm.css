@@ -1,0 +1,19 @@
+#dashBoardForm{
+    position: relative;
+    top: 100px;
+}
+#dashBoardForm>div>div>div{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    margin: 20px;
+}
+#dashBoardForm>div{
+    position: relative;
+    width: 60vw;
+    height: 70vh;
+    right: 0;
+    left: 0;
+    margin: auto;
+}

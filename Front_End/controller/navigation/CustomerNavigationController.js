@@ -11,7 +11,7 @@ function saveLastView(clickedID) {
         case "indexForm":
             localStorage.setItem("view", "HOME");
             break;
-        case "bookingForm":
+        case "customerBookingViewForm":
             localStorage.setItem("view", "BOOKING");
             break;
         case "loginForm":
@@ -30,7 +30,7 @@ function setTheLastView() {
             setView($("#indexForm"));
             break;
         case "BOOKING":
-            setView($("#bookingForm"));
+            setView($("#customerBookingViewForm"));
             break;
         case "LOGIN":
             setView($("#loginForm"));
@@ -44,7 +44,7 @@ function setTheLastView() {
 }
 
 function clearAll() {
-    $("#indexForm,#customerForm,#bookingForm,#loginForm").css('display', 'none');
+    $("#indexForm,#customerForm,#bookingForm,#loginForm,#customerBookingViewForm").css('display', 'none');
 }
 
 function setView(viewOb) {
@@ -60,7 +60,7 @@ $("#lnkHome").click(function () {
 });
 
 $("#lnkBooking").click(function () {
-    setView($("#bookingForm"));
+    setView($("#customerBookingViewForm"));
 });
 
 $("#lnkSingIn").click(function () {

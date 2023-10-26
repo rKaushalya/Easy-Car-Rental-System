@@ -16,6 +16,7 @@ public class Vehicle {
     private String registerNo;
     private String brand;
     private String type;
+    private String fuelType;
     private String transmissionType;
     private double dailyRate;
     private double monthlyRate;

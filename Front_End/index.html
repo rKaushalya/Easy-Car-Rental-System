@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="asset/css/customerForm.css">
     <link rel="stylesheet" href="asset/css/bookingForm.css">
     <link rel="stylesheet" href="asset/css/loginForm.css">
+    <link rel="stylesheet" href="asset/css/customerBookingViewForm.css">
 </head>
 <body>
 <header class="jumbotron text-white p-3">
@@ -35,9 +36,9 @@
                                 Category
                             </button>
                             <ul class="dropdown-menu dropdown-menu-start">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">General</a></li>
+                                <li><a class="dropdown-item" href="#">Premium</a></li>
+                                <li><a class="dropdown-item" href="#">Luxury</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -252,6 +253,46 @@
                 <p>Don't Have an Account? <a id="lnkRegister" href="#">Register</a></p>
             </div>
         </form>
+    </section>
+</main>
+
+<main id="customerBookingViewForm">
+    <section class="container text-center">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Customer Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Register No</th>
+                <th scope="col">Image</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+                <td>Pending</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
     </section>
 </main>
 

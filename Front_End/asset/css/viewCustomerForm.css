@@ -3,3 +3,11 @@
     position: relative;
     top: 110px;
 }
+#viewCustomerForm h1{
+    font-family: Arial;
+    font-size: 30px;
+}
+#viewCustomerForm table{
+    position: relative;
+    top: 20px;
+}

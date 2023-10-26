@@ -40,3 +40,7 @@ header ul>li>a{
     position: relative;
     top: 30px;
 }
+#vehicleForm form h1{
+    font-family: Arial;
+    font-size: 30px;
+}

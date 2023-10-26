@@ -1,0 +1,16 @@
+#viewBookingForm{
+    position: relative;
+    top: 100px;
+}
+#viewBookingForm table{
+    position: relative;
+    top: 30px;
+}
+#viewBookingForm h1{
+    font-family: Arial;
+    font-size: 30px;
+}
+#viewBookingForm section>ul{
+    position: absolute;
+    top: 0;
+}

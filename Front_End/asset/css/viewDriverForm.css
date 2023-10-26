@@ -9,6 +9,10 @@
     right: 0;
     margin: auto;
 }
+#viewDriverForm form h1{
+    font-family: Arial;
+    font-size: 30px;
+}
 #viewDriverForm table{
     position: relative;
     top: 30px;

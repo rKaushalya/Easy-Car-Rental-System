@@ -10,14 +10,6 @@
 <body>
 <header class="jumbotron text-white p-3">
     <h1 class="position-absolute" id="nav">Eazy Car Rental</h1>
-    <ul class="list-group list-group-horizontal justify-content-end font-weight-bold">
-        <li id="lnkDashBoard"><a href="#">DashBoard</a></li>
-        <li id="lnkHome"><a href="#">Customer</a></li>
-        <li id="lnkCustomer"><a href="#">Vehicle</a></li>
-        <li id="lnkItem"><a href="#">Booking</a></li>
-        <li id="lnkOrders"><a href="#">Drivers</a></li>
-        <li id="lnkIncome"><a href="#">Income Reports</a></li>
-    </ul>
 </header>
 
 <main id="adminLoginForm">
@@ -25,18 +17,20 @@
         <form class="row g-3">
             <h1>Admin Login</h1>
             <div class="col-md-12">
-                <label for="inputEmail4" class="form-label">Username</label>
-                <input type="text" class="form-control" id="inputEmail4">
+                <label for="adminUserName" class="form-label">Username</label>
+                <input type="text" class="form-control" id="adminUserName">
             </div>
             <div class="col-md-12">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
+                <label for="adminPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="adminPassword">
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-outline-primary">Login</button>
+                <button id="btnAdminLogin" type="button" class="btn btn-outline-primary"><a href="dashBoardForm.html">Login</a></button>
             </div>
         </form>
     </section>
 </main>
+
+<script src="../js/jquery-3.6.1.min.js"></script>
 </body>
 </html>

@@ -90,41 +90,41 @@
         <h1>Register</h1>
         <form id="customerDetailsForm" class="row g-3">
             <div class="col-8">
-                <label for="cusId" class="form-label">Customer Id</label>
-                <input type="text" class="form-control" id="cusId">
+                <label for="txtCusId" class="form-label">Customer Id</label>
+                <input type="text" name="cusId" class="form-control" id="txtCusId">
             </div>
             <div class="col-4">
                 <img src="asset/img/noImage.jpg" alt="Customer NIC" style="height: 200px">
             </div>
             <div class="col-8">
-                <label for="cusName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="cusName">
+                <label for="txtCusName" class="form-label">Name</label>
+                <input type="text" name="cusName" class="form-control" id="txtCusName">
             </div>
             <div class="row">
                 <div class="col-8">
-                    <label for="cusEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="cusEmail">
+                    <label for="txtCusEmail" class="form-label">Email</label>
+                    <input type="email" name="cusEmail" class="form-control" id="txtCusEmail">
                 </div>
             </div>
             <div class="col-md-6">
-                <label for="cusPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="cusPassword" required>
+                <label for="txtCusPassword" class="form-label">Password</label>
+                <input type="password" name="cusPassword" class="form-control" id="txtCusPassword" required>
             </div>
             <div class="col-6">
-                <label for="cusAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="cusAddress" placeholder="1234 Main St">
+                <label for="txtCusAddress" class="form-label">Address</label>
+                <input type="text" name="cusAddress" class="form-control" id="txtCusAddress" placeholder="1234 Main St">
             </div>
             <div class="col-4">
-                <label for="cusContact" class="form-label">Contact No</label>
-                <input type="tel" class="form-control" id="cusContact">
+                <label for="txtCusContact" class="form-label">Contact No</label>
+                <input type="tel" name="cusContact" class="form-control" id="txtCusContact">
             </div>
             <div class="col-md-4">
-                <label for="cusNIC" class="form-label">NIC no</label>
-                <input type="text" class="form-control" id="cusNIC">
+                <label for="txtCusNIC" class="form-label">NIC no</label>
+                <input type="text" name="cusNIC" class="form-control" id="txtCusNIC">
             </div>
             <div class="col-md-4">
-                <label for="cusNICPhoto" class="form-label">NIC Photo</label>
-                <input type="file" class="form-control" id="cusNICPhoto">
+                <label for="txtCusNICPhoto" class="form-label">NIC Photo</label>
+                <input name="cusNICPhoto" type="file" class="form-control" id="txtCusNICPhoto">
             </div>
             <div style="height: 15px"></div>
             <div class="col-12">
@@ -299,5 +299,6 @@
 <script src="asset/js/jquery-3.6.1.min.js"></script>
 <script src="asset/Bootstrap/js/bootstrap.bundle.js"></script>
 <script src="controller/navigation/CustomerNavigationController.js"></script>
+<script src="controller/CustomerController.js"></script>
 </body>
 </html>

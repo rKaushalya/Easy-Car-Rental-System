@@ -16,5 +16,4 @@ public class CustomerDTO {
     private String cusAddress;
     private String cusContact;
     private String cusNIC;
-    private MultipartFile cusNICPhoto;
 }

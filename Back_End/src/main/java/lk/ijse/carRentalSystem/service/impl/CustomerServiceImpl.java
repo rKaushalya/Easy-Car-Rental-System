@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
 import java.io.File;
@@ -46,18 +47,18 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void addCustomer(CustomerDTO customerDTO) throws IOException {
+    public void addCustomer(CustomerDTO customerDTO, MultipartFile cusNICPhoto) throws IOException {
         if (customerRepo.existsById(customerDTO.getCusId())) {
             throw new RuntimeException(customerDTO.getCusId()+" is already available, please insert a new ID");
         }else {
 
-            String filePath = FOLDER_PATH+customerDTO.getCusNICPhoto().getOriginalFilename();
+            String filePath = FOLDER_PATH+cusNICPhoto.getOriginalFilename();
 
             CustomerDetails customerDetails = new CustomerDetails();
             customerDetails.setNicNo(customerDTO.getCusNIC());
-            customerDetails.setFileName(customerDTO.getCusNICPhoto().getOriginalFilename());
+            customerDetails.setFileName(cusNICPhoto.getOriginalFilename());
             customerDetails.setFilePath(filePath);
-            customerDetails.setFileType(customerDTO.getCusNICPhoto().getContentType());
+            customerDetails.setFileType(cusNICPhoto.getContentType());
 
             Customer customer = new Customer();
             customer.setCId(customerDTO.getCusId());
@@ -72,7 +73,7 @@ public class CustomerServiceImpl implements CustomerService {
 
             customerRepo.save(customer);
 
-            customerDTO.getCusNICPhoto().transferTo(new File(filePath));
+            cusNICPhoto.transferTo(new File(filePath));
         }
     }
 

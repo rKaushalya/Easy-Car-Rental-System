@@ -25,6 +25,11 @@ public class CustomerController {
     @Autowired
     ObjectMapper objectMapper;
 
+    @GetMapping
+    public ResponseUtil searchAllCustomers(){
+        return new ResponseUtil("OK","Successfully Loaded",customerService.getAllCustomers());
+    }
+
     @PostMapping
     public ResponseUtil addCustomer(@RequestParam("cusNICPhoto") MultipartFile cusNICPhoto,@RequestParam("cusDetails") String cusDetails) throws IOException {
 
@@ -36,6 +41,6 @@ public class CustomerController {
 
         customerService.addCustomer(customerDTO,cusNICPhoto);
 
-        return new ResponseUtil("Ok","Successfully Added",null);
+        return new ResponseUtil("Ok","Successfully Added",customerDTO.getCusId());
     }
 }

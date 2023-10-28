@@ -68,7 +68,8 @@ function getAllCustomers() {
                 let contact = cus.cusContact;
                 let email = cus.cusEmail;
                 let nic = cus.cusNIC;
-                let row = `<tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${contact}</td><td>${email}</td><td>${nic}</td></tr>`;
+                let btn = "<button class=\"btn btn-outline-danger\">delete</button>";
+                let row = `<tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${contact}</td><td>${email}</td><td>${nic}</td><td>${btn}</td></tr>`;
                 $("#tblViewCustomer").append(row);
             }
             // bindTrEvents();

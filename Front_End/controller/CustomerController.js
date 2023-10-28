@@ -42,3 +42,10 @@ function saveCustomer() {
 function searchCustomer(id){
 
 }
+
+$(function (){
+    $("#txtCusNICPhoto").change(function (event) {
+        let x = URL.createObjectURL(event.target.files[0]);
+        $("#preview").attr("src",x);
+    });
+})

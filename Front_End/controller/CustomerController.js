@@ -72,10 +72,44 @@ function getAllCustomers() {
                 let row = `<tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${contact}</td><td>${email}</td><td>${nic}</td><td>${btn}</td></tr>`;
                 $("#tblViewCustomer").append(row);
             }
-            // bindTrEvents();
+            bindTrEvents();
         },
         error: function (error) {
             alert(error.responseJSON.message);
+        }
+    });
+}
+
+function deleteCustomer(id){
+    $.ajax({
+        url: BASE_URL + "customer?cusId=" + id,
+        method: 'delete',
+        success: function (res) {
+            console.log(res.message);
+            return true;
+        },
+        error: function (error) {
+            console.log(error)
+            return false;
+        }
+    });
+}
+
+function bindTrEvents() {
+    $('#tblViewCustomer>tr button').click(function () {
+        let id = $(this).parent().parent().children().eq(0).text();
+
+        alert(id);
+
+        let consent = confirm("Do you want to delete.?");
+        if (consent) {
+            let response = deleteCustomer(id);
+            if (response) {
+                alert("Customer Deleted");
+                getAllCustomers();
+            } else {
+                alert("Customer Not Removed..!");
+            }
         }
     });
 }

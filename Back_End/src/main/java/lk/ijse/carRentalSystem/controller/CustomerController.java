@@ -43,4 +43,10 @@ public class CustomerController {
 
         return new ResponseUtil("Ok","Successfully Added",customerDTO.getCusId());
     }
+
+    @DeleteMapping
+    public ResponseUtil deleteCustomer(String cusId){
+        customerService.deleteCustomer(cusId);
+        return new ResponseUtil("OK","Successfully Deleted",cusId);
+    }
 }

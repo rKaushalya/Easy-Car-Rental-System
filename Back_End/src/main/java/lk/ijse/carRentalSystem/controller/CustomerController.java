@@ -49,4 +49,10 @@ public class CustomerController {
         customerService.deleteCustomer(cusId);
         return new ResponseUtil("OK","Successfully Deleted",cusId);
     }
+
+    @PutMapping(path = "/password")
+    public ResponseUtil customerPasswordUpdate(@RequestParam("id") String id,@RequestParam("password") String password){
+        customerService.updateCustomerPassword(id,password);
+        return new ResponseUtil("OK","successfully Updated",password);
+    }
 }

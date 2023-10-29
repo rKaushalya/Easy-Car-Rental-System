@@ -16,4 +16,6 @@ public interface CustomerService {
     void updateCustomer(CustomerDTO customerDTO);
 
     void deleteCustomer(String id);
+
+    void updateCustomerPassword(String id,String password);
 }

@@ -6,6 +6,19 @@ $("#btnCustomerRegister").click(function (){
     saveCustomer();
 });
 
+$("#btnForget").click(function (){
+    let email = $("#cusForgetEmail").val();
+    let nPw = $("#cusForgetPassword").val();
+    let cPw = $("#cusNewPassword").val();
+
+    if (nPw === cPw){
+        forgetPassword(email,nPw);
+    }else {
+        alert("Password didn't match.!");
+    }
+
+});
+
 function saveCustomer() {
     var jsonData = {
         cusId : $("#txtCusId").val(),
@@ -111,4 +124,26 @@ function bindTrEvents() {
             }
         }
     });
+}
+
+function forgetPassword(id,password) {
+    var data = new FormData();
+    data.append("id",id);
+    data.append("password",password);
+
+    $.ajax({
+        url: BASE_URL + "customer/password",
+        method: 'put',
+        async: true,
+        contentType: false,
+        processData: false,
+        data: data,
+        success: function (res) {
+            console.log(res.message);
+            alert(res.message);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
 }

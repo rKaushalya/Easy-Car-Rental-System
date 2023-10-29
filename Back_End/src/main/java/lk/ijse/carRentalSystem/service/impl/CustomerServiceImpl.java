@@ -7,7 +7,7 @@ import lk.ijse.carRentalSystem.repo.CustomerDetailsRepo;
 import lk.ijse.carRentalSystem.repo.CustomerRepo;
 import lk.ijse.carRentalSystem.service.CustomerService;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -97,5 +97,15 @@ public class CustomerServiceImpl implements CustomerService {
         }else {
             throw new RuntimeException(id+" Customer is not available, please check the ID before Delete.!");
         }
+    }
+
+    @Override
+    public void updateCustomerPassword(String id, String password) {
+        if (customerRepo.existsById(id)){
+            customerRepo.updateCustomerPassword(id,password);
+        }else{
+            throw new RuntimeException(id+" Customer is not available, please check the ID before Update.!");
+        }
+
     }
 }

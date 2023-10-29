@@ -1,5 +1,6 @@
 package lk.ijse.carRentalSystem.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lk.ijse.carRentalSystem.dto.DriverDTO;
 import lk.ijse.carRentalSystem.service.DriverService;
@@ -49,5 +50,12 @@ public class DriverController {
     public ResponseUtil deleteDriver(String id){
         driverService.deleteDriver(id);
         return new ResponseUtil("OK","Successfully Deleted.!",id);
+    }
+
+    @PutMapping
+    public ResponseUtil updateDriver(@RequestParam("file") MultipartFile file,@RequestParam("driver") String data) throws IOException {
+        DriverDTO driverDTO = objectMapper.readValue(data, DriverDTO.class);
+        driverService.updateDriver(driverDTO,file);
+        return new ResponseUtil("OK","Update Success.!",driverDTO.getDriverId());
     }
 }

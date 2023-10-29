@@ -13,6 +13,10 @@ $("#btnDriverDelete").click(function () {
     deleteDriver();
 });
 
+$("#btnUpdateDriver").click(function () {
+    updateDriver();
+});
+
 function saveDriver() {
     var driverData = {
         driverId: $("#driverId").html(),
@@ -131,6 +135,39 @@ function deleteDriver(){
             alert(res.message);
             getAllDrivers();
             getNewDriverId();
+        },
+        error: function (error) {
+            console.log(error)
+        }
+    });
+}
+
+function updateDriver() {
+    var driverUpdateData = {
+        driverId: $("#driverId").html(),
+        name: $("#dName").val(),
+        address: $("#dAddress").val(),
+        dob: $("#dDOB").val(),
+        city: $("#dCity").val(),
+        licenseNo: $("#dLicenseNo").val()
+    }
+
+    var data = new FormData();
+    data.append('driver', JSON.stringify(driverUpdateData));
+    let image = $("#dLicensePhoto")[0].files[0];
+    data.append("file", image);
+
+    $.ajax({
+        url: BASE_URL + "driver",
+        method: 'put',
+        async: true,
+        contentType: false,
+        processData: false,
+        data: data,
+        success: function (res) {
+            alert(res.message);
+            getNewDriverId();
+            getAllDrivers();
         },
         error: function (error) {
             console.log(error)

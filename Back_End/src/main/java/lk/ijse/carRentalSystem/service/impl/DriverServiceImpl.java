@@ -79,8 +79,29 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public void updateDriver(Driver driver) {
+    public void updateDriver(DriverDTO driver, MultipartFile file) throws IOException {
+        String filePath = FOLDER_PATH+file.getOriginalFilename();
 
+        DriverDetails driverDetails = new DriverDetails();
+        driverDetails.setLicenseNo(driver.getLicenseNo());
+        driverDetails.setFileName(file.getOriginalFilename());
+        driverDetails.setFilePath(filePath);
+        driverDetails.setFileType(file.getContentType());
+
+        if (driverDetailsRepo.existsById(driver.getLicenseNo())){
+            driverDetailsRepo.save(driverDetails);
+        }else {
+            throw new RuntimeException(driver.getLicenseNo()+" This Driver Not available please check the id.!");
+        }
+
+        if (driverRepo.existsById(driver.getDriverId())){
+            driverRepo.save(new Driver(driver.getDriverId(),driver.getName(),driver.getAddress(),driver.getDob(),
+                    driver.getCity(),driverDetails));
+        }else {
+            throw new RuntimeException(driver.getDriverId()+" This Driver Not available please check the id.!");
+        }
+
+        file.transferTo(new File(filePath));
     }
 
     @Override

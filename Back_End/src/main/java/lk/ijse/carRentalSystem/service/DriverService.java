@@ -1,7 +1,6 @@
 package lk.ijse.carRentalSystem.service;
 
 import lk.ijse.carRentalSystem.dto.DriverDTO;
-import lk.ijse.carRentalSystem.entity.Driver;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -14,7 +13,7 @@ public interface DriverService {
 
     List<DriverDTO> getAllDrivers();
 
-    void updateDriver(Driver driver);
+    void updateDriver(DriverDTO driver,MultipartFile file) throws IOException;
 
     void deleteDriver(String id);
 

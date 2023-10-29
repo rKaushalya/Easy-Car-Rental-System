@@ -71,6 +71,7 @@ function getAllDrivers() {
                 let row = `<tr><td>${id}</td><td>${name}</td><td>${city}</td><td>${dob}</td></tr>`;
                 $("#tblDriverView").append(row);
             }
+            bindEvent();
         },
         error: function (error) {
             // alert(error.responseJSON.message);
@@ -98,5 +99,19 @@ function findDriverByName() {
             // alert(error.responseJSON.message);
             console.log(error);
         }
+    });
+}
+
+function bindEvent() {
+    $("#tblDriverView>tr").click(function () {
+        let id = $(this).children().eq(0).text();
+        let name = $(this).children().eq(1).text();
+        let city = $(this).children().eq(2).text();
+        let dob = $(this).children().eq(3).text();
+
+        $("#dName").val(name);
+        $("#driverId").html(id);
+        $("#dDOB").val(dob);
+        $("#dCity").val(city);
     });
 }

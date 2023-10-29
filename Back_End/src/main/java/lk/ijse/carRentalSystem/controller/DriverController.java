@@ -44,4 +44,10 @@ public class DriverController {
     public ResponseUtil findDriverByName(String name){
         return new ResponseUtil("OK","Successfully get all",driverService.findDriverByName(name));
     }
+
+    @DeleteMapping
+    public ResponseUtil deleteDriver(String id){
+        driverService.deleteDriver(id);
+        return new ResponseUtil("OK","Successfully Deleted.!",id);
+    }
 }

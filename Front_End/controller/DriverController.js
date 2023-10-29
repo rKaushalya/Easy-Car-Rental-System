@@ -9,6 +9,10 @@ $("#btnDriverSearch").click(function () {
     findDriverByName();
 });
 
+$("#btnDriverDelete").click(function () {
+    deleteDriver();
+});
+
 function saveDriver() {
     var driverData = {
         driverId: $("#driverId").html(),
@@ -34,6 +38,7 @@ function saveDriver() {
         success: function (res) {
             alert(res.message);
             getNewDriverId();
+            getAllDrivers();
         },
         error: function (error) {
             console.log(error)
@@ -113,5 +118,22 @@ function bindEvent() {
         $("#driverId").html(id);
         $("#dDOB").val(dob);
         $("#dCity").val(city);
+    });
+}
+
+function deleteDriver(){
+    let driverId = $("#driverId").html();
+
+    $.ajax({
+        url: BASE_URL + "driver?id="+driverId,
+        method: 'delete',
+        success: function (res) {
+            alert(res.message);
+            getAllDrivers();
+            getNewDriverId();
+        },
+        error: function (error) {
+            console.log(error)
+        }
     });
 }

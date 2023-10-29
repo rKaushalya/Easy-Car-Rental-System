@@ -59,7 +59,7 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public String getLastDriverId() {
         List<String> lastDriverId = driverRepo.getLastDriverId();
-        String driverId = "Not Working";
+        String driverId = null;
         for (String id : lastDriverId) {
             driverId=id;
         }
@@ -85,7 +85,11 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void deleteDriver(String id) {
-
+        if (driverRepo.existsById(id)){
+            driverRepo.deleteById(id);
+        }else {
+            throw new RuntimeException(id+" this id not available please check the id before delete");
+        }
     }
 
     @Override

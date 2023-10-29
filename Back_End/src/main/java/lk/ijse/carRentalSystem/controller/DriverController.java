@@ -34,4 +34,9 @@ public class DriverController {
     public ResponseUtil getDriverId(){
         return new ResponseUtil("OK","Successfully get driver Id",driverService.getLastDriverId());
     }
+
+    @GetMapping
+    public ResponseUtil getAllDrivers(){
+        return new ResponseUtil("OK","Successfully get all",driverService.getAllDrivers());
+    }
 }

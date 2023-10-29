@@ -1,4 +1,5 @@
 getNewDriverId();
+getAllDrivers();
 
 $("#btnDriverAdd").click(function () {
     saveDriver();
@@ -6,7 +7,7 @@ $("#btnDriverAdd").click(function () {
 
 function saveDriver() {
     var driverData = {
-        driverId: $("#driverId").val(),
+        driverId: $("#driverId").html(),
         name: $("#dName").val(),
         address: $("#dAddress").val(),
         dob: $("#dDOB").val(),
@@ -28,6 +29,7 @@ function saveDriver() {
         data: data,
         success: function (res) {
             alert(res.message);
+            getNewDriverId();
         },
         error: function (error) {
             console.log(error)
@@ -44,6 +46,31 @@ function getNewDriverId() {
         },
         error: function (error) {
             alert(error.responseJSON.message);
+        }
+    });
+}
+
+function getAllDrivers() {
+    $("#tblDriverView").empty();
+
+    $.ajax({
+        url: BASE_URL + 'driver',
+        dataType: "json",
+        success: function (response) {
+            let driver = response.data;
+            for (let i in driver) {
+                let dri = driver[i];
+                let id = dri.driverId;
+                let name = dri.name;
+                let city = dri.city;
+                let dob = dri.dob;
+                let row = `<tr><td>${id}</td><td>${name}</td><td>${city}</td><td>${dob}</td></tr>`;
+                $("#tblDriverView").append(row);
+            }
+        },
+        error: function (error) {
+            // alert(error.responseJSON.message);
+            console.log(error);
         }
     });
 }

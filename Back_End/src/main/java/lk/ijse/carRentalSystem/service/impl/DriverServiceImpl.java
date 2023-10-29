@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -64,6 +65,27 @@ public class DriverServiceImpl implements DriverService {
         }
 
         return newDriverID(driverId);
+    }
+
+    @Override
+    public List<DriverDTO> getAllDrivers() {
+        List<Driver> all = driverRepo.findAll();
+        List<DriverDTO> drivers = new ArrayList<>();
+        for (Driver d: all) {
+            drivers.add(new DriverDTO(d.getDriverId(),d.getName(),d.getAddress(),d.getDob(),d.getCity()
+                    ,d.getDriverDetails().getLicenseNo()));
+        }
+        return drivers;
+    }
+
+    @Override
+    public void updateDriver(Driver driver) {
+
+    }
+
+    @Override
+    public void deleteDriver(String id) {
+
     }
 
     public String newDriverID(String currentDriverId) {

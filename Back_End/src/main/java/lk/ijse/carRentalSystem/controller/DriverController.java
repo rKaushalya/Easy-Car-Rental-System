@@ -39,4 +39,9 @@ public class DriverController {
     public ResponseUtil getAllDrivers(){
         return new ResponseUtil("OK","Successfully get all",driverService.getAllDrivers());
     }
+
+    @GetMapping(path = "/name")
+    public ResponseUtil findDriverByName(String name){
+        return new ResponseUtil("OK","Successfully get all",driverService.findDriverByName(name));
+    }
 }

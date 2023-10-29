@@ -88,6 +88,13 @@ public class DriverServiceImpl implements DriverService {
 
     }
 
+    @Override
+    public DriverDTO findDriverByName(String name) {
+        Driver driver = driverRepo.findDriverByName(name);
+        return new DriverDTO(driver.getDriverId(),driver.getName(),driver.getAddress(),driver.getDob()
+                ,driver.getCity(),driver.getDriverDetails().getLicenseNo());
+    }
+
     public String newDriverID(String currentDriverId) {
         if (currentDriverId != null) {
             String[] split = currentDriverId.split("D0");

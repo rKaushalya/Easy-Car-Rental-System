@@ -5,6 +5,10 @@ $("#btnDriverAdd").click(function () {
     saveDriver();
 });
 
+$("#btnDriverSearch").click(function () {
+    findDriverByName();
+});
+
 function saveDriver() {
     var driverData = {
         driverId: $("#driverId").html(),
@@ -67,6 +71,28 @@ function getAllDrivers() {
                 let row = `<tr><td>${id}</td><td>${name}</td><td>${city}</td><td>${dob}</td></tr>`;
                 $("#tblDriverView").append(row);
             }
+        },
+        error: function (error) {
+            // alert(error.responseJSON.message);
+            console.log(error);
+        }
+    });
+}
+
+function findDriverByName() {
+    let name = $("#dName").val();
+
+    $.ajax({
+        url: BASE_URL + 'driver/name?name='+name,
+        dataType: "json",
+        success: function (response) {
+            let driver = response.data;
+                $("#dName").val(driver.name);
+                $("#driverId").html(driver.driverId);
+                $("#dAddress").val(driver.address);
+                $("#dDOB").val(driver.dob);
+                $("#dCity").val(driver.city);
+                $("#dLicenseNo").val(driver.licenseNo);
         },
         error: function (error) {
             // alert(error.responseJSON.message);

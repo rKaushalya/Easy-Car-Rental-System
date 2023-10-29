@@ -29,4 +29,9 @@ public class DriverController {
 
         return new ResponseUtil("OK","Driver added Successfully",driverDTO.getDriverId());
     }
+
+    @GetMapping(path = "/id")
+    public ResponseUtil getDriverId(){
+        return new ResponseUtil("OK","Successfully get driver Id",driverService.getLastDriverId());
+    }
 }

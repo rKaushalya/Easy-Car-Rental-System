@@ -8,4 +8,6 @@ import java.io.IOException;
 
 public interface DriverService {
     void AddDriver(DriverDTO driver, MultipartFile file) throws IOException;
+
+    String getLastDriverId();
 }

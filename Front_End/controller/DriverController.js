@@ -1,3 +1,5 @@
+getNewDriverId();
+
 $("#btnDriverAdd").click(function () {
     saveDriver();
 });
@@ -29,6 +31,19 @@ function saveDriver() {
         },
         error: function (error) {
             console.log(error)
+        }
+    });
+}
+
+function getNewDriverId() {
+    $.ajax({
+        url: BASE_URL + 'driver/id',
+        dataType: "json",
+        success: function (response) {
+            $("#driverId").html(response.data);
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
         }
     });
 }

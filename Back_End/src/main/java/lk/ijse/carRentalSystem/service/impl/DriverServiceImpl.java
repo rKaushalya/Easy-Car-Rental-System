@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Service
 @Transactional
@@ -52,5 +53,29 @@ public class DriverServiceImpl implements DriverService {
 
         file.transferTo(new File(filePath));
 
+    }
+
+    @Override
+    public String getLastDriverId() {
+        List<String> lastDriverId = driverRepo.getLastDriverId();
+        String driverId = "Not Working";
+        for (String id : lastDriverId) {
+            driverId=id;
+        }
+
+        return newDriverID(driverId);
+    }
+
+    public String newDriverID(String currentDriverId) {
+        if (currentDriverId != null) {
+            String[] split = currentDriverId.split("D0");
+            int id = Integer.parseInt(split[1]);
+            id += 1;
+            if (id >= 10) {
+                return "D0" + id;
+            }
+            return "D00" + id;
+        }
+        return "D001";
     }
 }

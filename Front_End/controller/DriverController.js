@@ -76,8 +76,12 @@ function getAllDrivers() {
                 let id = dri.driverId;
                 let name = dri.name;
                 let city = dri.city;
+
                 let dob = dri.dob;
-                let row = `<tr><td>${id}</td><td>${name}</td><td>${city}</td><td>${dob}</td></tr>`;
+                var dateObj = new Date(dob);
+                var formattedDate = dateObj.toISOString().split('T')[0];
+
+                let row = `<tr><td>${id}</td><td>${name}</td><td>${city}</td><td>${formattedDate}</td></tr>`;
                 $("#tblDriverView").append(row);
             }
             bindEvent();

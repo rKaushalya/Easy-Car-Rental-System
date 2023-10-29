@@ -44,7 +44,7 @@ function setTheLastView() {
 }
 
 function clearAll() {
-    $("#indexForm,#customerForm,#bookingForm,#loginForm,#customerBookingViewForm").css('display', 'none');
+    $("#indexForm,#customerForm,#bookingForm,#loginForm,#customerBookingViewForm,#forgetPasswordForm").css('display', 'none');
 }
 
 function setView(viewOb) {
@@ -69,4 +69,7 @@ $("#lnkSingIn").click(function () {
 
 $("#lnkRegister").click(function () {
     setView($("#customerForm"));
+});
+$("#lnkForget").click(function () {
+    setView($("#forgetPasswordForm"));
 });

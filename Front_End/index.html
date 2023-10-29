@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="asset/css/bookingForm.css">
     <link rel="stylesheet" href="asset/css/loginForm.css">
     <link rel="stylesheet" href="asset/css/customerBookingViewForm.css">
+    <link rel="stylesheet" href="asset/css/forgetPasswordForm.css">
 </head>
 <body>
 <header class="jumbotron text-white p-3">
@@ -244,13 +245,36 @@
                 </label>
             </div>
             <div class="col-md-6">
-                <a href="#">Forget Password?</a>
+                <a id="lnkForget" href="#">Forget Password?</a>
             </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Sign in</button>
             </div>
             <div id="last" class="col-12">
                 <p>Don't Have an Account? <a id="lnkRegister" href="#">Register</a></p>
+            </div>
+        </form>
+    </section>
+</main>
+
+<main id="forgetPasswordForm">
+    <section class="container">
+        <form class="row g-3">
+            <h1>Forget Password</h1>
+            <div class="col-md-12">
+                <label for="cusForgetEmail" class="form-label">Email</label>
+                <input name="cusLoginEmail" type="email" class="form-control" id="cusForgetEmail">
+            </div>
+            <div class="col-md-12">
+                <label for="cusForgetPassword" class="form-label">New Password</label>
+                <input type="password" class="form-control" id="cusForgetPassword">
+            </div>
+            <div class="col-md-12">
+                <label for="cusNewPassword" class="form-label">Conform Password</label>
+                <input type="password" class="form-control" id="cusNewPassword">
+            </div>
+            <div class="col-12">
+                <button type="button" class="btn btn-primary">Update</button>
             </div>
         </form>
     </section>

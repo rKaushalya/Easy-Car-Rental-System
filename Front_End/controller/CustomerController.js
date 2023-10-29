@@ -99,8 +99,6 @@ function bindTrEvents() {
     $('#tblViewCustomer>tr button').click(function () {
         let id = $(this).parent().parent().children().eq(0).text();
 
-        alert(id);
-
         let consent = confirm("Do you want to delete.?");
         if (consent) {
             let response = deleteCustomer(id);
@@ -109,6 +107,7 @@ function bindTrEvents() {
                 getAllCustomers();
             } else {
                 alert("Customer Not Removed..!");
+                getAllCustomers();
             }
         }
     });

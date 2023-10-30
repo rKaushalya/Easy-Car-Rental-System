@@ -16,6 +16,6 @@ public class VehicleDetails {
     private String filePath;
     private String fileType;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Vehicle vehicle;
 }

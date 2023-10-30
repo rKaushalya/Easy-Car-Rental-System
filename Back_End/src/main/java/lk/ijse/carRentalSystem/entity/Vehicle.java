@@ -28,6 +28,6 @@ public class Vehicle {
     private String color;
     private String state;
 
-    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
     List<VehicleDetails> vehicleDetails = new ArrayList<>();
 }

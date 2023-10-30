@@ -2,6 +2,35 @@ $("#btnVehicleAdd").click(function () {
     addVehicle();
 });
 
+$(function (){
+    $("#vFront").change(function (event) {
+        let x = URL.createObjectURL(event.target.files[0]);
+        $("#imgFront").attr("src",x);
+    });
+});
+
+$(function (){
+    $("#vBack").change(function (event) {
+        let x = URL.createObjectURL(event.target.files[0]);
+        $("#imgBack").attr("src",x);
+    });
+});
+
+$(function (){
+    $("#vSide").change(function (event) {
+        let x = URL.createObjectURL(event.target.files[0]);
+        $("#imgSide").attr("src",x);
+    });
+});
+
+$(function (){
+    $("#vInterior").change(function (event) {
+        let x = URL.createObjectURL(event.target.files[0]);
+        $("#imgInterior").attr("src",x);
+    });
+});
+
+
 function addVehicle() {
     var VehicleData = {
         registerNo: $("#vRegisterNo").val(),

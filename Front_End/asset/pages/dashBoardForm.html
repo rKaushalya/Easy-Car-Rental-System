@@ -131,31 +131,31 @@
                     <input type="file" class="form-control" id="vInterior">
                 </div>
                 <div class="col-md-2">
-                    <img src="../img/noImage.jpg" alt="vehicle image.">
+                    <img id="imgFront" src="../img/noImage.jpg" alt="vehicle image.">
                 </div>
                 <div class="col-md-2">
-                    <img src="../img/noImage.jpg" alt="vehicle image.">
+                    <img id="imgBack" src="../img/noImage.jpg" alt="vehicle image.">
                 </div>
                 <div class="col-md-2">
-                    <img src="../img/noImage.jpg" alt="vehicle image.">
+                    <img id="imgSide" src="../img/noImage.jpg" alt="vehicle image.">
                 </div>
                 <div class="col-md-2">
-                    <img src="../img/noImage.jpg" alt="vehicle image.">
+                    <img id="imgInterior" src="../img/noImage.jpg" alt="vehicle image.">
                 </div>
                 <div style="height: 15px"></div>
                 <div class="col-12">
                     <div class="row">
                         <div class="col-3">
-                            <button type="submit" class="btn btn-outline-primary">Add</button>
+                            <button id="btnVehicleAdd" type="button" class="btn btn-outline-primary">Add</button>
                         </div>
                         <div class="col-3">
-                            <button type="submit" class="btn btn-outline-warning">Update</button>
+                            <button id="btnVehicleUpdate" type="button" class="btn btn-outline-warning">Update</button>
                         </div>
                         <div class="col-3">
-                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                            <button id="btnVehicleDelete" type="button" class="btn btn-outline-danger">Delete</button>
                         </div>
                         <div class="col-3">
-                            <button type="submit" class="btn btn-outline-success">Search</button>
+                            <button id="btnVehicleSearch" type="button" class="btn btn-outline-success">Search</button>
                         </div>
                     </div>
                 </div>
@@ -383,5 +383,6 @@
 <script src="../../controller/navigation/AdminNavigationController.js"></script>
 <script src="../../controller/CustomerController.js"></script>
 <script src="../../controller/DriverController.js"></script>
+<script src="../../controller/VehicleController.js"></script>
 </body>
 </html>

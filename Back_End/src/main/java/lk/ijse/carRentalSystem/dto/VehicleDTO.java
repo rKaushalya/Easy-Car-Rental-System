@@ -15,6 +15,7 @@ public class VehicleDTO {
     private String transmissionType;
     private double dailyRate;
     private double monthlyRate;
+    private int noOfPassenger;
     private int freeMileage;
     private double freePrice;
     private double priceForExtraKM;

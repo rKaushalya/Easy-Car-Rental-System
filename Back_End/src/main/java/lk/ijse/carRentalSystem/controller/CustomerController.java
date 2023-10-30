@@ -30,6 +30,11 @@ public class CustomerController {
         return new ResponseUtil("OK","Successfully Loaded",customerService.getAllCustomers());
     }
 
+    @GetMapping(path = "/id")
+    public ResponseUtil getDriverId(){
+        return new ResponseUtil("OK","Successfully get driver Id",customerService.getNewCustomerId());
+    }
+
     @PostMapping
     public ResponseUtil addCustomer(@RequestParam("cusNICPhoto") MultipartFile cusNICPhoto,@RequestParam("cusDetails") String cusDetails) throws IOException {
 

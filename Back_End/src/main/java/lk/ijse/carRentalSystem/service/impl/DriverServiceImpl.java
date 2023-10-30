@@ -65,7 +65,6 @@ public class DriverServiceImpl implements DriverService {
         for (String id : lastDriverId) {
             driverId=id;
         }
-
         return newDriverID(driverId);
     }
 

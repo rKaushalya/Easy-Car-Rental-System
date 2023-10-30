@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.sql.ResultSet;
+import java.util.List;
 
 public interface CustomerRepo extends JpaRepository<Customer, String> {
     Customer findCustomerByName(String name);
@@ -14,4 +15,7 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
     @Modifying
     @Query(value = "update customer set password=:pw where cId=:id",nativeQuery = true)
     void updateCustomerPassword(@Param("id") String id, @Param("pw") String password);
+
+    @Query(value = "SELECT cId FROM customer ORDER BY cId DESC LIMIT 1",nativeQuery = true)
+    String getLastCustomerId();
 }

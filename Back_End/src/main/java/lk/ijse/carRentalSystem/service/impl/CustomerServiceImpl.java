@@ -108,4 +108,23 @@ public class CustomerServiceImpl implements CustomerService {
         }
 
     }
+
+    @Override
+    public String getNewCustomerId() {
+        String lastCustomerId = customerRepo.getLastCustomerId();
+        return getNewCusId(lastCustomerId);
+    }
+
+    public String getNewCusId(String currentCusId){
+        if (currentCusId != null) {
+            String[] split = currentCusId.split("C0");
+            int id = Integer.parseInt(split[1]);
+            id += 1;
+            if (id >= 10) {
+                return "C0" + id;
+            }
+            return "C00" + id;
+        }
+        return "C001";
+    }
 }

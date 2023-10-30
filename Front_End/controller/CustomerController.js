@@ -1,6 +1,7 @@
 var BASE_URL = "http://localhost:8080/Back_End_war/";
 
 getAllCustomers();
+getNewCustomerId();
 
 $("#btnCustomerRegister").click(function (){
     saveCustomer();
@@ -146,4 +147,17 @@ function forgetPassword(id,password) {
             console.log(error);
         }
     })
+}
+
+function getNewCustomerId() {
+    $.ajax({
+        url: BASE_URL + 'customer/id',
+        dataType: "json",
+        success: function (response) {
+            $("#txtCusId").val(response.data);
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
+        }
+    });
 }

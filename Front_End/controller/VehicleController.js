@@ -12,6 +12,10 @@ $("#btnVehicleSearch").click(function () {
     searchByRegisterNo();
 });
 
+$("#btnVehicleUpdate").click(function () {
+    updateVehicle();
+});
+
 $(function () {
     $("#vFront").change(function (event) {
         let x = URL.createObjectURL(event.target.files[0]);
@@ -93,6 +97,7 @@ function deleteVehicle() {
         url: BASE_URL + "vehicle?id=" + registerNo,
         method: "delete",
         success: function (response) {
+            getAllVehicles();
             alert(response.message);
         },
         error: function (error) {
@@ -164,6 +169,52 @@ function searchByRegisterNo() {
         },
         error: function (error) {
             console.log(error);
+        }
+    });
+}
+
+function updateVehicle() {
+    var VehicleUpdatedData = {
+        registerNo: $("#vRegisterNo").val(),
+        brand: $("#vBrand").val(),
+        type: $("#type").val(),
+        fuelType: $("#FuelType").val(),
+        transmissionType: $("#vTransmissionType").val(),
+        dailyRate: $("#vDailyRate").val(),
+        monthlyRate: $("#vMonthlyRate").val(),
+        noOfPassenger: $("#vNoOfPassenger").val(),
+        freeMileage: $("#vFreeMileage").val(),
+        freePrice: $("#vFreePrice").val(),
+        priceForExtraKM: $("#vExtraKMPrice").val(),
+        color: $("#vColor").val(),
+        state: $("#vState").val()
+    }
+
+    var data = new FormData();
+    let frontImage = $("#vFront")[0].files[0];
+    let backImage = $("#vBack")[0].files[0];
+    let sideImage = $("#vSide")[0].files[0];
+    let interiorImage = $("#vInterior")[0].files[0];
+
+    data.append("front", frontImage);
+    data.append("back", backImage);
+    data.append("side", sideImage);
+    data.append("interior", interiorImage);
+    data.append('data', JSON.stringify(VehicleUpdatedData));
+
+    $.ajax({
+        url: BASE_URL + "vehicle",
+        method: 'put',
+        async: true,
+        contentType: false,
+        processData: false,
+        data: data,
+        success: function (res) {
+            alert(res.message);
+            getAllVehicles();
+        },
+        error: function (error) {
+            console.log(error)
         }
     });
 }

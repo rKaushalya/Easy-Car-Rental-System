@@ -138,8 +138,73 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public void updateVehicle(VehicleDTO dto, MultipartFile front, MultipartFile back, MultipartFile side, MultipartFile interior) {
+    public void updateVehicle(VehicleDTO dto, MultipartFile front, MultipartFile back, MultipartFile side, MultipartFile interior) throws IOException {
+        if (vehicleRepo.existsById(dto.getRegisterNo())){
 
+            String frontPath = FOLDER_PATH+front.getOriginalFilename();
+            String backPath = FOLDER_PATH+back.getOriginalFilename();
+            String sidePath = FOLDER_PATH+side.getOriginalFilename();
+            String interiorPath = FOLDER_PATH+interior.getOriginalFilename();
+
+            Vehicle vehicle = new Vehicle();
+            vehicle.setRegisterNo(dto.getRegisterNo());
+            vehicle.setBrand(dto.getBrand());
+            vehicle.setType(dto.getType());
+            vehicle.setFuelType(dto.getFuelType());
+            vehicle.setTransmissionType(dto.getTransmissionType());
+            vehicle.setDailyRate(dto.getDailyRate());
+            vehicle.setMonthlyRate(dto.getMonthlyRate());
+            vehicle.setNoOfPassenger(dto.getNoOfPassenger());
+            vehicle.setFreeMileage(dto.getFreeMileage());
+            vehicle.setFreePrice(dto.getFreePrice());
+            vehicle.setPriceForExtraKM(dto.getPriceForExtraKM());
+            vehicle.setColor(dto.getColor());
+            vehicle.setState(dto.getState());
+
+
+            VehicleDetails frontView = new VehicleDetails();
+            frontView.setFileName(front.getOriginalFilename());
+            frontView.setFilePath(frontPath);
+            frontView.setFileType(front.getContentType());
+            frontView.setVehicle(vehicle);
+
+            VehicleDetails backView = new VehicleDetails();
+            backView.setFileName(back.getOriginalFilename());
+            backView.setFilePath(backPath);
+            backView.setFileType(back.getContentType());
+            backView.setVehicle(vehicle);
+
+            VehicleDetails sideView = new VehicleDetails();
+            sideView.setFileName(side.getOriginalFilename());
+            sideView.setFilePath(sidePath);
+            sideView.setFileType(side.getContentType());
+            sideView.setVehicle(vehicle);
+
+            VehicleDetails interiorView = new VehicleDetails();
+            interiorView.setFileName(interior.getOriginalFilename());
+            interiorView.setFilePath(interiorPath);
+            interiorView.setFileType(interior.getContentType());
+            interiorView.setVehicle(vehicle);
+
+            vehicle.getVehicleDetails().add(frontView);
+            vehicle.getVehicleDetails().add(backView);
+            vehicle.getVehicleDetails().add(sideView);
+            vehicle.getVehicleDetails().add(interiorView);
+
+            vehicleRepo.save(vehicle);
+
+            vehicleDetailsRepo.save(frontView);
+            vehicleDetailsRepo.save(backView);
+            vehicleDetailsRepo.save(sideView);
+            vehicleDetailsRepo.save(interiorView);
+
+            front.transferTo(new File(frontPath));
+            back.transferTo(new File(backPath));
+            side.transferTo(new File(sidePath));
+            interior.transferTo(new File(interiorPath));
+        }else {
+            throw new RuntimeException(dto.getRegisterNo()+" Cannot find this Register Number...");
+        }
     }
 
     @Override

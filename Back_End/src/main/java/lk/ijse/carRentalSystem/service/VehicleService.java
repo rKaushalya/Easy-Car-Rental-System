@@ -14,7 +14,7 @@ public interface VehicleService {
 
     void deleteVehicle(String id);
 
-    void updateVehicle(VehicleDTO dto, MultipartFile front, MultipartFile back, MultipartFile side, MultipartFile interior);
+    void updateVehicle(VehicleDTO dto, MultipartFile front, MultipartFile back, MultipartFile side, MultipartFile interior) throws IOException;
 
     VehicleDTO getVehicleById(String id);
 }

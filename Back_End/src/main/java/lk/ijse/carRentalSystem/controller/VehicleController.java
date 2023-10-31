@@ -44,4 +44,12 @@ public class VehicleController {
     public ResponseUtil loadVehicleById(String id) throws IOException {
         return new ResponseUtil("OK","Successfully deleted.! ",vehicleService.getVehicleById(id));
     }
+
+    @PutMapping
+    public ResponseUtil updateVehicle(@RequestParam("data") String data,@RequestParam("front") MultipartFile front,@RequestParam("back") MultipartFile back,
+                                      @RequestParam("side") MultipartFile side,@RequestParam("interior") MultipartFile interior) throws IOException {
+        VehicleDTO vehicleDTO = objectMapper.readValue(data, VehicleDTO.class);
+        vehicleService.updateVehicle(vehicleDTO,front,back,side,interior);
+        return new ResponseUtil("OK","Update Success.!",vehicleDTO.getRegisterNo());
+    }
 }

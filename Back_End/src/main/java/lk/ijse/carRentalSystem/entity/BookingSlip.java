@@ -15,7 +15,4 @@ public class BookingSlip {
     private String fileName;
     private String filePath;
     private String fileType;
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Booking booking;
 }

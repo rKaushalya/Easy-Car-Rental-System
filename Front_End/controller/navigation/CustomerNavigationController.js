@@ -73,3 +73,21 @@ $("#lnkRegister").click(function () {
 $("#lnkForget").click(function () {
     setView($("#forgetPasswordForm"));
 });
+$("#cusLoginCheck").click(function () {
+    let email = $("#cusLoginEmail").val();
+    let password = $("#cusLoginPassword").val();
+
+    $.ajax({
+        url: BASE_URL + 'customer/check?email=' + email + "&password=" + password,
+        dataType: "json",
+        success: function (response) {
+            console.log(response.data);
+            setView($("#indexForm"));
+        },
+        error: function (error) {
+            option = error.data;
+            console.log(error.data);
+            alert("Wrong your email or password.!");
+        }
+    });
+});

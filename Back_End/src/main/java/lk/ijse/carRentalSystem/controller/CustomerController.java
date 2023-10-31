@@ -60,4 +60,9 @@ public class CustomerController {
         customerService.updateCustomerPassword(id,password);
         return new ResponseUtil("OK","successfully Updated",password);
     }
+
+    @GetMapping(path = "/check")
+    public ResponseUtil checkCustomer(String email,String password){
+        return new ResponseUtil("OK","Customer authenticated.!",customerService.checkCustomerLogin(email,password));
+    }
 }

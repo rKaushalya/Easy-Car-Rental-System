@@ -20,4 +20,6 @@ public interface CustomerService {
     void updateCustomerPassword(String id,String password);
 
     public String getNewCustomerId();
+
+    boolean checkCustomerLogin(String email,String password);
 }

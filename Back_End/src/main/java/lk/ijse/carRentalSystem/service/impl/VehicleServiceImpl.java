@@ -161,7 +161,6 @@ public class VehicleServiceImpl implements VehicleService {
             vehicle.setColor(dto.getColor());
             vehicle.setState(dto.getState());
 
-
             VehicleDetails frontView = new VehicleDetails();
             frontView.setFileName(front.getOriginalFilename());
             frontView.setFilePath(frontPath);
@@ -203,7 +202,7 @@ public class VehicleServiceImpl implements VehicleService {
             side.transferTo(new File(sidePath));
             interior.transferTo(new File(interiorPath));
         }else {
-            throw new RuntimeException(dto.getRegisterNo()+" Cannot find this Register Number...");
+            throw new RuntimeException(dto.getRegisterNo()+" cannot find this register number...");
         }
     }
 

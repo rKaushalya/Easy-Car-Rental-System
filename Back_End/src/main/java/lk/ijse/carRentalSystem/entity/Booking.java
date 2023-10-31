@@ -27,4 +27,7 @@ public class Booking {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Customer customer;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private BookingSlip bookingSlip;
 }

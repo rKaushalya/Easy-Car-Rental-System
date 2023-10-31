@@ -115,6 +115,12 @@ public class CustomerServiceImpl implements CustomerService {
         return getNewCusId(lastCustomerId);
     }
 
+    @Override
+    public boolean checkCustomerLogin(String email, String password) {
+        Customer customer = customerRepo.findByEmailAndPassword(email, password);
+        return customer.getEmail().equals(email);
+    }
+
     public String getNewCusId(String currentCusId){
         if (currentCusId != null) {
             String[] split = currentCusId.split("C0");

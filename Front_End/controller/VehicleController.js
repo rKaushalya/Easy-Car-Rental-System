@@ -1,4 +1,3 @@
-
 getAllVehicles();
 
 $("#btnVehicleAdd").click(function () {
@@ -9,31 +8,31 @@ $("#btnVehicleDelete").click(function () {
     deleteVehicle();
 });
 
-$(function (){
+$(function () {
     $("#vFront").change(function (event) {
         let x = URL.createObjectURL(event.target.files[0]);
-        $("#imgFront").attr("src",x);
+        $("#imgFront").attr("src", x);
     });
 });
 
-$(function (){
+$(function () {
     $("#vBack").change(function (event) {
         let x = URL.createObjectURL(event.target.files[0]);
-        $("#imgBack").attr("src",x);
+        $("#imgBack").attr("src", x);
     });
 });
 
-$(function (){
+$(function () {
     $("#vSide").change(function (event) {
         let x = URL.createObjectURL(event.target.files[0]);
-        $("#imgSide").attr("src",x);
+        $("#imgSide").attr("src", x);
     });
 });
 
-$(function (){
+$(function () {
     $("#vInterior").change(function (event) {
         let x = URL.createObjectURL(event.target.files[0]);
-        $("#imgInterior").attr("src",x);
+        $("#imgInterior").attr("src", x);
     });
 });
 
@@ -87,7 +86,7 @@ function addVehicle() {
 function deleteVehicle() {
     let registerNo = $("#vRegisterNo").val();
     $.ajax({
-        url: BASE_URL + "vehicle?id="+registerNo,
+        url: BASE_URL + "vehicle?id=" + registerNo,
         method: "delete",
         success: function (response) {
             alert(response.message);
@@ -118,13 +117,21 @@ function getAllVehicles() {
                 console.log(frontView);
 
                 let row = `<tr><td>${registerNo}</td><td>${brand}</td><td>${color}</td><td>${noOfPassenger}</td><td>${type}</td><td>${state}</td>
-                            <td><img src="${"../img/uploads/"+frontView}" width="100px" height="80px"></td></tr>`;
+                            <td><img src="${"../img/uploads/" + frontView}" width="100px" height="80px"></td></tr>`;
                 $("#tblVehicle").append(row);
             }
-            // bindTrEvents();
+            vBindEvent();
         },
         error: function (error) {
             alert(error.responseJSON.message);
         }
+    });
+}
+
+function vBindEvent() {
+    $("#tblVehicle>tr").click(function () {
+        let id = $(this).children().eq(0).text();
+
+        $("#vRegisterNo").val(id);
     });
 }

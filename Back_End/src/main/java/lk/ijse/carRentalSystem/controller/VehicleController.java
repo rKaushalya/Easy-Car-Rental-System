@@ -39,4 +39,9 @@ public class VehicleController {
     public ResponseUtil loadAllVehicles() throws IOException {
         return new ResponseUtil("OK","Successfully deleted.! ",vehicleService.getAllVehicle());
     }
+
+    @GetMapping(path = "/id")
+    public ResponseUtil loadVehicleById(String id) throws IOException {
+        return new ResponseUtil("OK","Successfully deleted.! ",vehicleService.getVehicleById(id));
+    }
 }

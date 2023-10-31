@@ -8,6 +8,10 @@ $("#btnVehicleDelete").click(function () {
     deleteVehicle();
 });
 
+$("#btnVehicleSearch").click(function () {
+    searchByRegisterNo();
+});
+
 $(function () {
     $("#vFront").change(function (event) {
         let x = URL.createObjectURL(event.target.files[0]);
@@ -131,7 +135,35 @@ function getAllVehicles() {
 function vBindEvent() {
     $("#tblVehicle>tr").click(function () {
         let id = $(this).children().eq(0).text();
-
         $("#vRegisterNo").val(id);
+    });
+}
+
+function searchByRegisterNo() {
+    let registerNo = $("#vRegisterNo").val();
+
+    $.ajax({
+        url: BASE_URL + 'vehicle/id?id=' + registerNo,
+        dataType: "json",
+        success: function (response) {
+            let veh = response.data;
+
+                $("#vRegisterNo").val(veh.registerNo);
+                $("#vBrand").val(veh.brand);
+                $("#type").val(veh.type);
+                $("#FuelType").val(veh.fuelType);
+                $("#vTransmissionType").val(veh.transmissionType);
+                $("#vDailyRate").val(veh.dailyRate);
+                $("#vMonthlyRate").val(veh.monthlyRate);
+                $("#vNoOfPassenger").val(veh.noOfPassenger);
+                $("#vFreeMileage").val(veh.freeMileage);
+                $("#vFreePrice").val(veh.freePrice);
+                $("#vExtraKMPrice").val(veh.priceForExtraKM);
+                $("#vColor").val(veh.color);
+                $("#vState").val(veh.state);
+        },
+        error: function (error) {
+            console.log(error);
+        }
     });
 }

@@ -141,4 +141,11 @@ public class VehicleServiceImpl implements VehicleService {
     public void updateVehicle(VehicleDTO dto, MultipartFile front, MultipartFile back, MultipartFile side, MultipartFile interior) {
 
     }
+
+    @Override
+    public VehicleDTO getVehicleById(String id) {
+        Vehicle v = vehicleRepo.getVehicleByRegisterNo(id);
+        return new VehicleDTO(v.getRegisterNo(),v.getBrand(),v.getType(),v.getFuelType(),v.getTransmissionType(),v.getDailyRate(),
+                v.getMonthlyRate(),v.getNoOfPassenger(),v.getFreeMileage(),v.getFreePrice(),v.getPriceForExtraKM(),v.getColor(),v.getState());
+    }
 }

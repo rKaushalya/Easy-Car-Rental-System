@@ -28,4 +28,10 @@ public class VehicleController {
         vehicleService.addVehicle(vehicleDTO,front,back,side,interior);
         return new ResponseUtil("OK","Successfully Added.!",vehicleDTO.getRegisterNo());
     }
+
+    @DeleteMapping
+    public ResponseUtil deleteVehicle(String id){
+        vehicleService.deleteVehicle(id);
+        return new ResponseUtil("OK","Successfully deleted.! ",id);
+    }
 }

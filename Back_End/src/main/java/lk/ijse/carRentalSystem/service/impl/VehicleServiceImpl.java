@@ -104,7 +104,11 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public void deleteVehicle(String id) {
-
+        if (vehicleRepo.existsById(id)){
+            vehicleRepo.deleteById(id);
+        }else {
+            throw new RuntimeException(id+" this register number not available...");
+        }
     }
 
     @Override

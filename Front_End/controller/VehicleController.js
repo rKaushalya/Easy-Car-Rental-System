@@ -2,6 +2,10 @@ $("#btnVehicleAdd").click(function () {
     addVehicle();
 });
 
+$("#btnVehicleDelete").click(function () {
+    deleteVehicle();
+});
+
 $(function (){
     $("#vFront").change(function (event) {
         let x = URL.createObjectURL(event.target.files[0]);
@@ -73,6 +77,20 @@ function addVehicle() {
         },
         error: function (error) {
             console.log(error)
+        }
+    });
+}
+
+function deleteVehicle() {
+    let registerNo = $("#vRegisterNo").val();
+    $.ajax({
+        url: BASE_URL + "vehicle?id="+registerNo,
+        method: "delete",
+        success: function (response) {
+            alert(response.message);
+        },
+        error: function (error) {
+            console.log(error);
         }
     });
 }

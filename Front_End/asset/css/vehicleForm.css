@@ -29,7 +29,7 @@ header ul>li>a{
     position: relative;
     top: 60px;
 }
-#vehicleForm img{
+#vehicleForm form img{
     position: relative;
     height: 150px;
     width: 150px;

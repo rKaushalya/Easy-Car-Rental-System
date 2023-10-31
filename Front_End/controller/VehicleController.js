@@ -1,3 +1,6 @@
+
+getAllVehicles();
+
 $("#btnVehicleAdd").click(function () {
     addVehicle();
 });
@@ -73,7 +76,7 @@ function addVehicle() {
         data: data,
         success: function (res) {
             alert(res.message);
-            // getAllVehicles();
+            getAllVehicles();
         },
         error: function (error) {
             console.log(error)
@@ -91,6 +94,37 @@ function deleteVehicle() {
         },
         error: function (error) {
             console.log(error);
+        }
+    });
+}
+
+function getAllVehicles() {
+    $("#tblVehicle").empty();
+
+    $.ajax({
+        url: BASE_URL + 'vehicle',
+        dataType: "json",
+        success: function (response) {
+            let vehicle = response.data;
+            for (let i in vehicle) {
+                let veh = vehicle[i];
+                let registerNo = veh.registerNo;
+                let brand = veh.brand;
+                let color = veh.color;
+                let noOfPassenger = veh.noOfPassenger;
+                let type = veh.type;
+                let state = veh.state;
+                let frontView = veh.filePath;
+                console.log(frontView);
+
+                let row = `<tr><td>${registerNo}</td><td>${brand}</td><td>${color}</td><td>${noOfPassenger}</td><td>${type}</td><td>${state}</td>
+                            <td><img src="${"../img/uploads/"+frontView}" width="100px" height="80px"></td></tr>`;
+                $("#tblVehicle").append(row);
+            }
+            // bindTrEvents();
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
         }
     });
 }

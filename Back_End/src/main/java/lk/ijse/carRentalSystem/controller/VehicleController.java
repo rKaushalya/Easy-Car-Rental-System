@@ -34,4 +34,9 @@ public class VehicleController {
         vehicleService.deleteVehicle(id);
         return new ResponseUtil("OK","Successfully deleted.! ",id);
     }
+
+    @GetMapping
+    public ResponseUtil loadAllVehicles() throws IOException {
+        return new ResponseUtil("OK","Successfully deleted.! ",vehicleService.getAllVehicle());
+    }
 }

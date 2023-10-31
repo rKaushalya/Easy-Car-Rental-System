@@ -8,12 +8,18 @@ import lk.ijse.carRentalSystem.repo.VehicleDetailsRepo;
 import lk.ijse.carRentalSystem.repo.VehicleRepo;
 import lk.ijse.carRentalSystem.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,7 +31,7 @@ public class VehicleServiceImpl implements VehicleService {
     @Autowired
     VehicleDetailsRepo vehicleDetailsRepo;
 
-    private final String FOLDER_PATH = "C:\\Users\\ASUS\\Documents\\Car rental Images\\";
+    private final String FOLDER_PATH = "C:\\Users\\ASUS\\IdeaProjects\\Car_Rental_System\\Front_End\\asset\\img\\uploads\\";
 
     @Override
     public void addVehicle(VehicleDTO dto, MultipartFile front, MultipartFile back, MultipartFile side, MultipartFile interior) throws IOException {
@@ -98,8 +104,28 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public List<VehicleShowDTO> getAllVehicle() {
-        return null;
+    public List<VehicleShowDTO> getAllVehicle() throws IOException {
+        List<VehicleShowDTO> vehicles = new ArrayList<>();
+        List<Vehicle> all = vehicleRepo.findAll();
+        for (Vehicle v: all) {
+            VehicleShowDTO vh = new VehicleShowDTO();
+            vh.setRegisterNo(v.getRegisterNo());
+            vh.setBrand(v.getBrand());
+            vh.setType(v.getType());
+            vh.setNoOfPassenger(v.getNoOfPassenger());
+            vh.setColor(v.getColor());
+            vh.setState(v.getState());
+
+            List<VehicleDetails> details = v.getVehicleDetails();
+            for (int i = 0; i < 1; i++) {
+                VehicleDetails vehicleDetails = details.get(i);
+                System.out.println(vehicleDetails.getFileName());
+
+                vh.setFilePath(vehicleDetails.getFileName());
+            }
+            vehicles.add(vh);
+        }
+        return vehicles;
     }
 
     @Override

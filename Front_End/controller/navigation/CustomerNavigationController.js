@@ -83,6 +83,10 @@ $("#cusLoginCheck").click(function () {
         success: function (response) {
             console.log(response.data);
             setView($("#indexForm"));
+            $("#lnkSingIn>a").text(response.data);
+            $("#lnkSingIn>i").css({
+                "display": "none"
+            });
         },
         error: function (error) {
             option = error.data;

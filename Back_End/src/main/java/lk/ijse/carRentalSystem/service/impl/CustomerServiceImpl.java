@@ -116,9 +116,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public boolean checkCustomerLogin(String email, String password) {
+    public String checkCustomerLogin(String email, String password) {
         Customer customer = customerRepo.findByEmailAndPassword(email, password);
-        return customer.getEmail().equals(email);
+        return customer.getName();
     }
 
     public String getNewCusId(String currentCusId){

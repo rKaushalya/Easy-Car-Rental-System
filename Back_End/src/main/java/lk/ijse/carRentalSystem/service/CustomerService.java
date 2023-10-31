@@ -21,5 +21,5 @@ public interface CustomerService {
 
     public String getNewCustomerId();
 
-    boolean checkCustomerLogin(String email,String password);
+    String checkCustomerLogin(String email,String password);
 }

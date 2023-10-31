@@ -2,19 +2,20 @@ var BASE_URL = "http://localhost:8080/Back_End_war/";
 
 getAllCustomers();
 getNewCustomerId();
+getVehiclesDetails();
 
-$("#btnCustomerRegister").click(function (){
+$("#btnCustomerRegister").click(function () {
     saveCustomer();
 });
 
-$("#btnForget").click(function (){
+$("#btnForget").click(function () {
     let email = $("#cusForgetEmail").val();
     let nPw = $("#cusForgetPassword").val();
     let cPw = $("#cusNewPassword").val();
 
-    if (nPw === cPw){
-        forgetPassword(email,nPw);
-    }else {
+    if (nPw === cPw) {
+        forgetPassword(email, nPw);
+    } else {
         alert("Password didn't match.!");
     }
 
@@ -22,13 +23,13 @@ $("#btnForget").click(function (){
 
 function saveCustomer() {
     var jsonData = {
-        cusId : $("#txtCusId").val(),
-        cusName : $("#txtCusName").val(),
-        cusAddress : $("#txtCusAddress").val(),
-        cusEmail : $("#txtCusEmail").val(),
-        cusPassword : $("#txtCusPassword").val(),
-        cusContact : $("#txtCusContact").val(),
-        cusNIC : $("#txtCusNIC").val(),
+        cusId: $("#txtCusId").val(),
+        cusName: $("#txtCusName").val(),
+        cusAddress: $("#txtCusAddress").val(),
+        cusEmail: $("#txtCusEmail").val(),
+        cusPassword: $("#txtCusPassword").val(),
+        cusContact: $("#txtCusContact").val(),
+        cusNIC: $("#txtCusNIC").val(),
     }
 
     var data = new FormData();
@@ -55,14 +56,14 @@ function saveCustomer() {
     });
 }
 
-function searchCustomer(id){
+function searchCustomer(id) {
 
 }
 
-$(function (){
+$(function () {
     $("#txtCusNICPhoto").change(function (event) {
         let x = URL.createObjectURL(event.target.files[0]);
-        $("#preview").attr("src",x);
+        $("#preview").attr("src", x);
     });
 })
 
@@ -94,7 +95,7 @@ function getAllCustomers() {
     });
 }
 
-function deleteCustomer(id){
+function deleteCustomer(id) {
     $.ajax({
         url: BASE_URL + "customer?cusId=" + id,
         method: 'delete',
@@ -127,10 +128,10 @@ function bindTrEvents() {
     });
 }
 
-function forgetPassword(id,password) {
+function forgetPassword(id, password) {
     var data = new FormData();
-    data.append("id",id);
-    data.append("password",password);
+    data.append("id", id);
+    data.append("password", password);
 
     $.ajax({
         url: BASE_URL + "customer/password",
@@ -162,3 +163,31 @@ function getNewCustomerId() {
     });
 }
 
+function getVehiclesDetails() {
+    $("#tblViewCusVehicle").empty();
+
+    $.ajax({
+        url: BASE_URL + 'vehicle',
+        dataType: "json",
+        success: function (response) {
+            let vehicle = response.data;
+            for (let i in vehicle) {
+                let veh = vehicle[i];
+                let brand = veh.brand;
+                let color = veh.color;
+                let noOfPassenger = veh.noOfPassenger;
+                let type = veh.type;
+                let frontView = veh.filePath;
+                console.log(frontView);
+
+                let row = `<tr><td>${brand}</td><td>${type}</td><td>${color}</td><td>${noOfPassenger}</td>
+                <td><img src="${"asset/img/uploads/" + frontView}" width="100px" height="80px"></td></tr>`;
+                $("#tblViewCusVehicle").append(row);
+            }
+            // vBindEvent();
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
+        }
+    });
+}

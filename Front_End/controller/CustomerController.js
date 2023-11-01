@@ -56,7 +56,7 @@ function saveCustomer() {
     });
 }
 
-function searchCustomer(id) {
+function searchCustomer(name) {
 
 }
 
@@ -184,10 +184,24 @@ function getVehiclesDetails() {
                 <td><img src="${"asset/img/uploads/" + frontView}" width="100px" height="80px"></td></tr>`;
                 $("#tblViewCusVehicle").append(row);
             }
-            // vBindEvent();
+            checkForBooking();
         },
         error: function (error) {
             alert(error.responseJSON.message);
+        }
+    });
+}
+
+function checkForBooking() {
+    $("#tblViewCusVehicle>tr").click(function () {
+        let text = $("#lnkSingIn>a").text();
+        let name = $(this).children().eq(0).text();
+
+        if (text!=="Sing in"){
+
+            setView($("#bookingForm"));
+        }else {
+            alert("login first");
         }
     });
 }

@@ -1,5 +1,6 @@
 package lk.ijse.carRentalSystem.service.impl;
 
+import lk.ijse.carRentalSystem.dto.CustomerBookVehicleDTO;
 import lk.ijse.carRentalSystem.dto.VehicleDTO;
 import lk.ijse.carRentalSystem.dto.VehicleShowDTO;
 import lk.ijse.carRentalSystem.entity.Vehicle;
@@ -211,5 +212,11 @@ public class VehicleServiceImpl implements VehicleService {
         Vehicle v = vehicleRepo.getVehicleByRegisterNo(id);
         return new VehicleDTO(v.getRegisterNo(),v.getBrand(),v.getType(),v.getFuelType(),v.getTransmissionType(),v.getDailyRate(),
                 v.getMonthlyRate(),v.getNoOfPassenger(),v.getFreeMileage(),v.getFreePrice(),v.getPriceForExtraKM(),v.getColor(),v.getState());
+    }
+
+    @Override
+    public CustomerBookVehicleDTO loadDataToBookingPage(String name) {
+        Vehicle byBrand = vehicleRepo.findByBrand(name);
+        return null;
     }
 }

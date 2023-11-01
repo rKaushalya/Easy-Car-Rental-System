@@ -27,11 +27,12 @@ header ul>li>a{
 }
 #bookingForm{
     background-color: #efefef;
-    height: 110vh;
+    height: 100vh;
 }
 #bookingForm>div{
     position: relative;
-    top: 80px;
+    top: 70px;
+    height: 88vh;
     background-color: white;
 }
 #bookingForm #scroll{
@@ -43,6 +44,26 @@ header ul>li>a{
     left: 20px;
     height: 300px;
     width: 590px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+.divChild{
+    min-width: 290px;
+    height: 280px;
+    margin: 1px 10px;
+    cursor: pointer;
+    border: 1px solid white;
+    overflow: hidden;
+}
+.divChild>img{
+    width: 100%;
+    height: 100%;
+}
+#bookingForm #scroll::-webkit-scrollbar{
+    -webkit-appearance: none;
 }
 #bookingForm h1{
     position: relative;

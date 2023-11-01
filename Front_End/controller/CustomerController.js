@@ -232,6 +232,15 @@ function checkForBooking() {
                     let interior = veh.interiorView;
                     console.log(front+" / "+side);
 
+                    let div1 = `<div class='divChild'><img src="${"asset/img/uploads/"+front}" alt="vehicle Image"></div>`;
+                    let div2 = `<div class='divChild'><img src="${"asset/img/uploads/"+back}" alt="vehicle Image"></div>`;
+                    let div3 = `<div class='divChild'><img src="${"asset/img/uploads/"+side}" alt="vehicle Image"></div>`;
+                    let div4 = `<div class='divChild'><img src="${"asset/img/uploads/"+interior}" alt="vehicle Image"></div>`;
+                    $("#scroll").append(div1);
+                    $("#scroll").append(div2);
+                    $("#scroll").append(div3);
+                    $("#scroll").append(div4);
+
                     let row = `<tr><td>${dRate}</td><td>${mRate}</td><td>${extraKM}</td><td>${fMileage}</td><td>${transmission}</td></tr>`;
                     $("#tblCusBookingLoadData").append(row);
                     $("#showBrand").text(brand);

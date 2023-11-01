@@ -81,12 +81,15 @@ $("#cusLoginCheck").click(function () {
         url: BASE_URL + 'customer/check?email=' + email + "&password=" + password,
         dataType: "json",
         success: function (response) {
-            console.log(response.data);
-            setView($("#indexForm"));
-            $("#lnkSingIn>a").text(response.data);
+            let cus = response.data;
+            console.log(cus.name);
+            console.log(cus.cusId);
+            $("#showCusId").text(cus.cusId);
+            $("#lnkSingIn>a").text(cus.name);
             $("#lnkSingIn>i").css({
                 "display": "none"
             });
+            setView($("#indexForm"));
         },
         error: function (error) {
             option = error.data;

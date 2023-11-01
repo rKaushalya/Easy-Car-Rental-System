@@ -1,6 +1,7 @@
 package lk.ijse.carRentalSystem.service.impl;
 
 import lk.ijse.carRentalSystem.dto.CustomerDTO;
+import lk.ijse.carRentalSystem.dto.LoginCustomerDTO;
 import lk.ijse.carRentalSystem.entity.Customer;
 import lk.ijse.carRentalSystem.entity.CustomerDetails;
 import lk.ijse.carRentalSystem.repo.CustomerDetailsRepo;
@@ -116,9 +117,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public String checkCustomerLogin(String email, String password) {
+    public LoginCustomerDTO checkCustomerLogin(String email, String password) {
         Customer customer = customerRepo.findByEmailAndPassword(email, password);
-        return customer.getName();
+        return new LoginCustomerDTO(customer.getCId(),customer.getName());
     }
 
     public String getNewCusId(String currentCusId){

@@ -10,10 +10,11 @@ import lombok.NoArgsConstructor;
 public class CustomerBookVehicleDTO {
     private String registerNo;
     private String brand;
-    private String type;
-    private int noOfPassenger;
-    private String color;
-    private String state;
+    private double dailyRate;
+    private double monthlyRate;
+    private int freeMileage;
+    private double priceForExtraKM;
+    private String transmissionType;
 
     private String frontView;
     private String backView;

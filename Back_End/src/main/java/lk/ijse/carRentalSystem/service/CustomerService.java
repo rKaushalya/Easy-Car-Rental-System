@@ -1,6 +1,7 @@
 package lk.ijse.carRentalSystem.service;
 
 import lk.ijse.carRentalSystem.dto.CustomerDTO;
+import lk.ijse.carRentalSystem.dto.LoginCustomerDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public interface CustomerService {
 
     void updateCustomerPassword(String id,String password);
 
-    public String getNewCustomerId();
+    String getNewCustomerId();
 
-    String checkCustomerLogin(String email,String password);
+    LoginCustomerDTO checkCustomerLogin(String email, String password);
 }

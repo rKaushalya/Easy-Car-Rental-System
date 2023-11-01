@@ -216,7 +216,30 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public CustomerBookVehicleDTO loadDataToBookingPage(String name) {
-        Vehicle byBrand = vehicleRepo.findByBrand(name);
-        return null;
+        Vehicle v = vehicleRepo.findByBrand(name);
+        String[] path = new String[4];
+        int i = 0;
+
+        CustomerBookVehicleDTO s = new CustomerBookVehicleDTO();
+        s.setRegisterNo(v.getRegisterNo());
+        s.setBrand(v.getBrand());
+        s.setDailyRate(v.getDailyRate());
+        s.setMonthlyRate(v.getMonthlyRate());
+        s.setFreeMileage(v.getFreeMileage());
+        s.setPriceForExtraKM(v.getPriceForExtraKM());
+        s.setTransmissionType(v.getTransmissionType());
+
+        List<VehicleDetails> vehicleDetails = v.getVehicleDetails();
+        for (VehicleDetails vh: vehicleDetails) {
+            path[i] = vh.getFilePath();
+            i++;
+        }
+
+        s.setFrontView(path[0]);
+        s.setBackView(path[1]);
+        s.setSideView(path[2]);
+        s.setInteriorView(path[3]);
+
+        return s;
     }
 }

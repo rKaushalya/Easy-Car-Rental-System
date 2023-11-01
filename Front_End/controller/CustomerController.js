@@ -3,6 +3,7 @@ var BASE_URL = "http://localhost:8080/Back_End_war/";
 getAllCustomers();
 getNewCustomerId();
 getVehiclesDetails();
+generateNewBookingId();
 
 $("#btnCustomerRegister").click(function () {
     saveCustomer();
@@ -192,6 +193,9 @@ function getVehiclesDetails() {
     });
 }
 
+//for book a car
+let sampleRegNo;
+
 function checkForBooking() {
     $("#tblViewCusVehicle>tr").click(function () {
         $("#tblCusBookingLoadData").empty();
@@ -204,7 +208,7 @@ function checkForBooking() {
                 dataType: "json",
                 success: function (response) {
                     let veh = response.data;
-                    let reg = veh.registerNo;
+                    sampleRegNo = veh.registerNo;
                     let brand = veh.brand;
                     let mRate = veh.monthlyRate;
                     let dRate = veh.dailyRate;
@@ -236,6 +240,20 @@ function checkForBooking() {
             setView($("#bookingForm"));
         }else {
             alert("login first");
+        }
+    });
+}
+
+function generateNewBookingId() {
+    $.ajax({
+        url: BASE_URL + 'booking/id',
+        dataType: "json",
+        success: function (response) {
+            let bookingId = response.data;
+            $("#bookingId").val(bookingId);
+        },
+        error: function (error) {
+            console.log(error);
         }
     });
 }

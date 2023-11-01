@@ -197,6 +197,7 @@ function checkForBooking() {
         $("#tblCusBookingLoadData").empty();
         let text = $("#lnkSingIn>a").text();
         let name = $(this).children().eq(0).text();
+        let type = $(this).children().eq(1).text();
         if (text!=="Sing in"){
             $.ajax({
                 url: BASE_URL + 'vehicle/booking?brand=' + name,
@@ -215,10 +216,18 @@ function checkForBooking() {
                     let back = veh.backView;
                     let side = veh.sideView;
                     let interior = veh.interiorView;
+                    console.log(front+" / "+side);
 
                     let row = `<tr><td>${dRate}</td><td>${mRate}</td><td>${extraKM}</td><td>${fMileage}</td><td>${transmission}</td></tr>`;
                     $("#tblCusBookingLoadData").append(row);
                     $("#showBrand").text(brand);
+                    if (type==="General"){
+                        $("#bLossDamagePrice").val(10000);
+                    }else if (type==="Premium"){
+                        $("#bLossDamagePrice").val(15000);
+                    }else if(type==="Luxury"){
+                        $("#bLossDamagePrice").val(20000);
+                    }
                 },
                 error: function (error) {
                     console.log(error);

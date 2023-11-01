@@ -231,7 +231,7 @@ public class VehicleServiceImpl implements VehicleService {
 
         List<VehicleDetails> vehicleDetails = v.getVehicleDetails();
         for (VehicleDetails vh: vehicleDetails) {
-            path[i] = vh.getFilePath();
+            path[i] = vh.getFileName();
             i++;
         }
 

@@ -51,7 +51,7 @@ public class DriverServiceImpl implements DriverService {
             throw new RuntimeException(driver.getDriverId()+" is already available, please insert a new Driver ID");
         }else {
             driverRepo.save(new Driver(driver.getDriverId(),driver.getName(),driver.getAddress(),driver.getDob(),
-                    driver.getCity(),driverDetails));
+                    driver.getCity(),"Yes",driverDetails));
         }
 
         file.transferTo(new File(filePath));
@@ -97,7 +97,7 @@ public class DriverServiceImpl implements DriverService {
 
         if (driverRepo.existsById(driver.getDriverId())){
             driverRepo.save(new Driver(driver.getDriverId(),driver.getName(),driver.getAddress(),driver.getDob(),
-                    driver.getCity(),driverDetails));
+                    driver.getCity(),"Yes",driverDetails));
         }else {
             throw new RuntimeException(driver.getDriverId()+" This Driver Not available please check the id.!");
         }

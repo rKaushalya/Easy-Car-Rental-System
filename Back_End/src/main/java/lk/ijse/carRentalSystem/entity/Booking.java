@@ -22,6 +22,7 @@ public class Booking {
     private Time bookingTime;
     private String bookingLocation;
     private double lossDamagePrice;
+    private double carPrice;
     private String state;
     private String onlineOrPhysical;
 

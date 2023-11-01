@@ -84,7 +84,7 @@ $("#cusLoginCheck").click(function () {
             let cus = response.data;
             console.log(cus.name);
             console.log(cus.cusId);
-            $("#showCusId").text(cus.cusId);
+            $("#showCusId").text(cus.name);
             $("#lnkSingIn>a").text(cus.name);
             $("#lnkSingIn>i").css({
                 "display": "none"

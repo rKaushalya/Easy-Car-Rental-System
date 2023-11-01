@@ -20,6 +20,7 @@ public class Driver {
     @Column(name = "date_of_birth")
     private Date dob;
     private String city;
+    private String availability;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private DriverDetails driverDetails;

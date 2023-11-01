@@ -52,7 +52,7 @@ function saveCustomer() {
         success: function (res) {
             alert(res.message);
 
-            $("#showCusId").text(cusId);
+            $("#showCusId").text(cusName);
             $("#lnkSingIn>a").text(cusName);
             $("#lnkSingIn>i").css({
                 "display": "none"

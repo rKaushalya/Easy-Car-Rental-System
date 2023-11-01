@@ -20,4 +20,6 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
     String getLastCustomerId();
 
     Customer findByEmailAndPassword(String email,String password);
+
+    Customer getCustomerByName(String name);
 }

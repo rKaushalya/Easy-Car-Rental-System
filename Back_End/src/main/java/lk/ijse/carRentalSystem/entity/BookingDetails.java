@@ -3,6 +3,7 @@ package lk.ijse.carRentalSystem.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Time;
@@ -29,5 +30,6 @@ public class BookingDetails {
 
     private Date carBookDate;
     private Date pickupDate;
+    @CreationTimestamp
     private Time pickupTime;
 }

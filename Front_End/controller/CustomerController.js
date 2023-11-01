@@ -194,11 +194,36 @@ function getVehiclesDetails() {
 
 function checkForBooking() {
     $("#tblViewCusVehicle>tr").click(function () {
+        $("#tblCusBookingLoadData").empty();
         let text = $("#lnkSingIn>a").text();
         let name = $(this).children().eq(0).text();
-
         if (text!=="Sing in"){
+            $.ajax({
+                url: BASE_URL + 'vehicle/booking?brand=' + name,
+                dataType: "json",
+                success: function (response) {
+                    let veh = response.data;
+                    let reg = veh.registerNo;
+                    let brand = veh.brand;
+                    let mRate = veh.monthlyRate;
+                    let dRate = veh.dailyRate;
+                    let fMileage = veh.freeMileage;
+                    let extraKM = veh.priceForExtraKM;
+                    let transmission = veh.transmissionType;
 
+                    let front = veh.frontView;
+                    let back = veh.backView;
+                    let side = veh.sideView;
+                    let interior = veh.interiorView;
+
+                    let row = `<tr><td>${dRate}</td><td>${mRate}</td><td>${extraKM}</td><td>${fMileage}</td><td>${transmission}</td></tr>`;
+                    $("#tblCusBookingLoadData").append(row);
+                    $("#showBrand").text(brand);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
             setView($("#bookingForm"));
         }else {
             alert("login first");

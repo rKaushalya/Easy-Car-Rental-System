@@ -92,7 +92,6 @@ $("#cusLoginCheck").click(function () {
             setView($("#indexForm"));
         },
         error: function (error) {
-            option = error.data;
             console.log(error.data);
             alert("Wrong your email or password.!");
         }

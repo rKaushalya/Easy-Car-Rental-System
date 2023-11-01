@@ -37,12 +37,12 @@ public class VehicleController {
 
     @GetMapping
     public ResponseUtil loadAllVehicles() throws IOException {
-        return new ResponseUtil("OK","Successfully deleted.! ",vehicleService.getAllVehicle());
+        return new ResponseUtil("OK","Successfully Loaded.! ",vehicleService.getAllVehicle());
     }
 
     @GetMapping(path = "/id")
     public ResponseUtil loadVehicleById(String id) throws IOException {
-        return new ResponseUtil("OK","Successfully deleted.! ",vehicleService.getVehicleById(id));
+        return new ResponseUtil("OK","Successfully Loaded.! ",vehicleService.getVehicleById(id));
     }
 
     @PutMapping
@@ -51,5 +51,10 @@ public class VehicleController {
         VehicleDTO vehicleDTO = objectMapper.readValue(data, VehicleDTO.class);
         vehicleService.updateVehicle(vehicleDTO,front,back,side,interior);
         return new ResponseUtil("OK","Update Success.!",vehicleDTO.getRegisterNo());
+    }
+
+    @GetMapping(path = "/booking")
+    public ResponseUtil loadVehicleToBookingForm(String brand) throws IOException {
+        return new ResponseUtil("OK","Successfully deleted.! ",vehicleService.loadDataToBookingPage(brand));
     }
 }

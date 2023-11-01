@@ -10,9 +10,9 @@ import java.util.Date;
 @AllArgsConstructor
 @Data
 public class BookingDTO {
-    private String bId;
-    private String cName;
-    private String regNo;
+    private String bookId;
+    private String customerName;
+    private String registerNo;
     private String location;
     private double lossDamagePrice;
     private String onlineOrPhysical;

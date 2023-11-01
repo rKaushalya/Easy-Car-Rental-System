@@ -29,7 +29,8 @@ public class BookingController {
     @PostMapping
     public ResponseUtil addBooking(@RequestParam("slip") MultipartFile slip,@RequestParam("book") String book) throws IOException {
         BookingDTO bookingDTO = objectMapper.readValue(book, BookingDTO.class);
+        System.out.println("Book ID : "+bookingDTO.getBookId());
         bookingService.addBooking(bookingDTO,slip);
-        return new ResponseUtil("OK","Successfully Book.! ",bookingDTO.getBId());
+        return new ResponseUtil("OK","Successfully Book.! ",bookingDTO.getBookId());
     }
 }

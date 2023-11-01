@@ -180,11 +180,11 @@
                     </div>
                     <div class="col-6">
                         <label for="bDate" class="form-label">Booking Date</label>
-                        <input type="date" class="form-control" id="bDate" placeholder="1234 Main St">
+                        <input type="date" class="form-control" id="bDate">
                     </div>
                     <div class="col-6">
                         <label for="bPickupDate" class="form-label">Pickup Date</label>
-                        <input type="date" class="form-control" id="bPickupDate" placeholder="Apartment, studio, or floor">
+                        <input type="date" class="form-control" id="bPickupDate">
                     </div>
                     <div class="col-md-4">
                         <label for="bLossDamagePrice" class="form-label">Loss Damage Price</label>
@@ -209,8 +209,8 @@
                         <input type="file" class="form-control" id="inputZip">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputZip" class="form-label">Total Price</label>
-                        <input type="number" class="form-control" id="inputZi">
+                        <label for="inputPrice" class="form-label">Total Price</label>
+                        <input type="number" class="form-control" id="inputPrice">
                     </div>
                     <div class="col-8">
                         <div class="form-check">
@@ -220,7 +220,7 @@
                         </div>
                     </div>
                     <div class="col-auto">
-                        <button type="button" class="btn btn-outline-primary">Sent Request</button>
+                        <button id="btnSentRequest" type="button" class="btn btn-outline-primary">Sent Request</button>
                     </div>
                 </form>
             </div>
@@ -325,6 +325,6 @@
 <script src="asset/Bootstrap/js/bootstrap.bundle.js"></script>
 <script src="controller/CustomerController.js"></script>
 <script src="controller/navigation/CustomerNavigationController.js"></script>
-
+<script src="controller/bookingController.js"></script>
 </body>
 </html>

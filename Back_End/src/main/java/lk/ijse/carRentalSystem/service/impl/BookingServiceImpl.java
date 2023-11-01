@@ -50,10 +50,10 @@ public class BookingServiceImpl implements BookingService {
         slip.setFilePath(filePath);
         slip.setFileType(file.getContentType());
 
-        Customer c = customerRepo.getCustomerByName(dto.getCName());
+        Customer c = customerRepo.getCustomerByName(dto.getCustomerName());
 
         Booking booking = new Booking();
-        booking.setBookingId(dto.getBId());
+        booking.setBookingId(dto.getBookId());
         booking.setBookingLocation(dto.getLocation());
         booking.setLossDamagePrice(dto.getLossDamagePrice());
         booking.setCarPrice(dto.getCarPrice());
@@ -62,8 +62,8 @@ public class BookingServiceImpl implements BookingService {
         booking.setBookingSlip(slip);
         booking.setCustomer(c);
 
-        Vehicle vehicle = vehicleRepo.getVehicleByRegisterNo(dto.getRegNo());
-        BookingDetailsPK bookingDetailsPK = new BookingDetailsPK(dto.getBId(),dto.getRegNo());
+        Vehicle vehicle = vehicleRepo.getVehicleByRegisterNo(dto.getRegisterNo());
+        BookingDetailsPK bookingDetailsPK = new BookingDetailsPK(dto.getBookId(),dto.getRegisterNo());
 
         Driver driver;
         if (dto.getDriverState().equals("Yes")){

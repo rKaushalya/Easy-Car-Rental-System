@@ -23,9 +23,11 @@ $("#btnForget").click(function () {
 });
 
 function saveCustomer() {
+    let cusId = $("#txtCusId").val();
+    let cusName = $("#txtCusName").val();
     var jsonData = {
-        cusId: $("#txtCusId").val(),
-        cusName: $("#txtCusName").val(),
+        cusId: cusId,
+        cusName: cusName,
         cusAddress: $("#txtCusAddress").val(),
         cusEmail: $("#txtCusEmail").val(),
         cusPassword: $("#txtCusPassword").val(),
@@ -49,6 +51,14 @@ function saveCustomer() {
         data: data,
         success: function (res) {
             alert(res.message);
+
+            $("#showCusId").text(cusId);
+            $("#lnkSingIn>a").text(cusName);
+            $("#lnkSingIn>i").css({
+                "display": "none"
+            });
+
+            setView($("#indexForm"));
         },
         error: function (error) {
             // alert(error.responseJSON.message);

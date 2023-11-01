@@ -34,10 +34,15 @@ header ul>li>a{
     top: 80px;
     background-color: white;
 }
-#bookingForm img{
+#bookingForm #scroll{
     position: relative;
+    background: url("../img/slide-alternate-1-1.jpg");
+    background-position: center;
+    background-size: cover;
     top: 80px;
+    left: 20px;
     height: 300px;
+    width: 590px;
 }
 #bookingForm h1{
     position: relative;

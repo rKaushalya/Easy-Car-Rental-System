@@ -2,8 +2,10 @@ package lk.ijse.carRentalSystem.service.impl;
 
 import lk.ijse.carRentalSystem.dto.PaymentDTO;
 import lk.ijse.carRentalSystem.entity.Booking;
+import lk.ijse.carRentalSystem.entity.Driver;
 import lk.ijse.carRentalSystem.entity.PaymentDetails;
 import lk.ijse.carRentalSystem.repo.BookingRepo;
+import lk.ijse.carRentalSystem.repo.DriverRepo;
 import lk.ijse.carRentalSystem.repo.PaymentRepo;
 import lk.ijse.carRentalSystem.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class PaymentServiceImpl implements PaymentService {
     @Autowired
     BookingRepo bookingRepo;
 
+    @Autowired
+    DriverRepo driverRepo;
+
     @Override
     public void makeAPayment(PaymentDTO dto) {
         System.out.println("test 2 "+dto.getBookingId());
@@ -39,6 +44,12 @@ public class PaymentServiceImpl implements PaymentService {
         details.setBooking(book);
 
         paymentRepo.save(details);
+
+        if (!dto.getDriverStatus().equals("No Need Driver")){
+            Driver driver = driverRepo.findDriverByDriverId(dto.getDriverStatus());
+            driver.setAvailability("Yes");
+            driverRepo.save(driver);
+        }
     }
 
     @Override

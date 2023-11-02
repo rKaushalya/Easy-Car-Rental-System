@@ -25,7 +25,8 @@ function makeAPayment() {
         damagePrice: $("#txtDamagePrice").val(),
         extraKMPrice: $("#txtExtraKM").val(),
         forTheCar: $("#txtForCar").val(),
-        lateFee: $("#txtLateFee").val()
+        lateFee: $("#txtLateFee").val(),
+        driverStatus: driverIdForPayment
     }
 
     $.ajax({

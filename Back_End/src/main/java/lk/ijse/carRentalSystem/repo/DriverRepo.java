@@ -15,6 +15,8 @@ public interface DriverRepo extends JpaRepository<Driver,String> {
 
     Driver findDriverByName(String name);
 
-    @Query(value = "SELECT * FROM driver WHERE availability='yes' ORDER BY driverId DESC LIMIT 1",nativeQuery = true)
+    @Query(value = "SELECT * FROM driver WHERE availability='Yes' ORDER BY driverId DESC LIMIT 1",nativeQuery = true)
     Driver getDriverForBooking();
+
+    Driver findDriverByDriverId(String id);
 }

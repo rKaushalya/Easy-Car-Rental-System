@@ -149,11 +149,13 @@ function getBookingDetailsForCustomer() {
 
 //for the payment update
 let bookingId;
+let driverIdForPayment;
 
 function checkBookingStatus() {
     $('#adminBookingView>tr ul li a').click(function () {
         let status = $(this).eq(0).text();
         bookingId = $(this).parent().parent().parent().parent().parent().parent().children().eq(2).text();
+        driverIdForPayment = $(this).parent().parent().parent().parent().parent().parent().children().eq(5).text();
         if (status === "Complete") {
             setView($("#paymentForm"));
             getCarPriceForPaymentForm();

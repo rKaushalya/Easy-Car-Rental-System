@@ -14,4 +14,5 @@ public class PaymentDTO {
     private double extraKMPrice;
     private double forTheCar;
     private double lateFee;
+    private String driverStatus;
 }

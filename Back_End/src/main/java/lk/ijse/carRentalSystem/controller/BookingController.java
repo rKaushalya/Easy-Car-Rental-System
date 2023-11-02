@@ -33,4 +33,9 @@ public class BookingController {
         bookingService.addBooking(bookingDTO,slip);
         return new ResponseUtil("OK","Successfully Book.! ",bookingDTO.getBookId());
     }
+
+    @GetMapping
+    public ResponseUtil getAllBookings(){
+        return new ResponseUtil("OK","Successfully loaded.!",bookingService.getBookingDetailsForAdmin());
+    }
 }

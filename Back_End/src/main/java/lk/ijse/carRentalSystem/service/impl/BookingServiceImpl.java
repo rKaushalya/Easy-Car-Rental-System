@@ -1,6 +1,7 @@
 package lk.ijse.carRentalSystem.service.impl;
 
 import lk.ijse.carRentalSystem.dto.BookingDTO;
+import lk.ijse.carRentalSystem.dto.BookingViewDTO;
 import lk.ijse.carRentalSystem.entity.*;
 import lk.ijse.carRentalSystem.repo.*;
 import lk.ijse.carRentalSystem.service.BookingService;
@@ -11,6 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -71,7 +74,7 @@ public class BookingServiceImpl implements BookingService {
             driver.setAvailability("No");
             driverRepo.save(driver);
         }else {
-            driver = new Driver();
+            driver = null;
         }
 
         BookingDetails details = new BookingDetails();
@@ -87,6 +90,27 @@ public class BookingServiceImpl implements BookingService {
         bookingDetailsRepo.save(details);
 
         file.transferTo(new File(filePath));
+    }
+
+    @Override
+    public List<BookingViewDTO> getBookingDetailsForAdmin() {
+        List<BookingDetails> all = bookingDetailsRepo.findAll();
+        List<BookingViewDTO> dto = new ArrayList<>();
+        for (BookingDetails d : all) {
+            String dId = "";
+            if (d.getDriver().getDriverId()==null) {
+                dId = "No Need Driver";
+            }else {
+                dId = d.getDriver().getDriverId();
+            }
+            String bookingState = d.getBooking().getState();
+            dto.add(new BookingViewDTO(d.getBooking().getCustomer().getCId(),d.getBooking().getCustomer().getName(),
+                    d.getBooking().getCustomer().getEmail(),d.getBooking().getCustomer().getContactNo(),d.getBooking().getCustomer().getAddress(),
+                    d.getVehicle().getRegisterNo(),d.getCarBookDate(),d.getPickupDate(),dId,bookingState));
+
+            System.out.println("This Booking is : "+bookingState);
+        }
+        return dto;
     }
 
     public String getNewBookId(String currentBookId){

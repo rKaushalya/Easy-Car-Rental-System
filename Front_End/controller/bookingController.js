@@ -113,7 +113,7 @@ function getAllBookingForAdmin() {
             checkBookingStatus();
         },
         error: function (error) {
-            alert(error.responseJSON.message);
+            console.log(error);
         }
     });
 }
@@ -142,7 +142,7 @@ function getBookingDetailsForCustomer() {
             }
         },
         error: function (error) {
-            alert(error.responseJSON.message);
+            console.log(error);
         }
     });
 }

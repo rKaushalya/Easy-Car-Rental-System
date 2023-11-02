@@ -98,7 +98,7 @@ public class BookingServiceImpl implements BookingService {
         List<BookingViewDTO> dto = new ArrayList<>();
         for (BookingDetails d : all) {
             String dId = "";
-            if (d.getDriver().getDriverId()==null) {
+            if (d.getDriver()==null) {
                 dId = "No Need Driver";
             }else {
                 dId = d.getDriver().getDriverId();
@@ -117,9 +117,9 @@ public class BookingServiceImpl implements BookingService {
     public List<BookingViewDTO> getBookingDetailsForCustomer(String name) {
         List<BookingDetails> all = bookingDetailsRepo.findAll();
         List<BookingViewDTO> dto = new ArrayList<>();
+        String dId = "";
         for (BookingDetails d : all) {
-            String dId = "";
-            if (d.getDriver().getDriverId()==null) {
+            if (d.getDriver()==null) {
                 dId = "No Need Driver";
             }else {
                 dId = d.getDriver().getDriverId();
@@ -149,10 +149,10 @@ public class BookingServiceImpl implements BookingService {
     public List<BookingViewDTO> getBookingDetailsForSelectedState(String state) {
         List<BookingDetails> all = bookingDetailsRepo.findAll();
         List<BookingViewDTO> dto = new ArrayList<>();
+        String dId = "";
         for (BookingDetails d : all) {
             if (d.getBooking().getState().equals(state)) {
-                String dId = "";
-                if (d.getDriver().getDriverId() == null) {
+                if (d.getDriver() == null) {
                     dId = "No Need Driver";
                 } else {
                     dId = d.getDriver().getDriverId();

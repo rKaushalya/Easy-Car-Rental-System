@@ -20,4 +20,6 @@ public interface VehicleService {
     VehicleDTO getVehicleById(String id);
 
     CustomerBookVehicleDTO loadDataToBookingPage(String name);
+
+    List<VehicleShowDTO> getVehicleBySelectedType(String type);
 }

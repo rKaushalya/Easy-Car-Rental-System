@@ -21,6 +21,11 @@ $("#btnForget").click(function () {
 
 });
 
+$("#lnkWitchType li a").click(function () {
+    let type = $(this).text();
+    searchVehicleBySelectedType(type);
+});
+
 function saveCustomer() {
     let cusId = $("#txtCusId").val();
     let cusName = $("#txtCusName").val();
@@ -287,6 +292,35 @@ function checkForBooking() {
             setView($("#bookingForm"));
         }else {
             alert("login first");
+        }
+    });
+}
+
+function searchVehicleBySelectedType(type) {
+    $("#tblViewCusVehicle").empty();
+
+    $.ajax({
+        url: BASE_URL + 'vehicle/type?type='+type,
+        dataType: "json",
+        success: function (response) {
+            let vehicle = response.data;
+            for (let i in vehicle) {
+                let veh = vehicle[i];
+                let brand = veh.brand;
+                let color = veh.color;
+                let noOfPassenger = veh.noOfPassenger;
+                let type = veh.type;
+                let frontView = veh.filePath;
+                console.log(frontView);
+
+                let row = `<tr><td>${brand}</td><td>${type}</td><td>${color}</td><td>${noOfPassenger}</td>
+                <td><img src="${"asset/img/uploads/" + frontView}" width="100px" height="80px"></td></tr>`;
+                $("#tblViewCusVehicle").append(row);
+            }
+            checkForBooking();
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
         }
     });
 }

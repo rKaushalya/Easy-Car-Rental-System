@@ -242,4 +242,30 @@ public class VehicleServiceImpl implements VehicleService {
 
         return s;
     }
+
+    @Override
+    public List<VehicleShowDTO> getVehicleBySelectedType(String type) {
+        List<VehicleShowDTO> vehicles = new ArrayList<>();
+        List<Vehicle> byType = vehicleRepo.getVehicleByType(type);
+
+        for (Vehicle v: byType) {
+            VehicleShowDTO vh = new VehicleShowDTO();
+            vh.setRegisterNo(v.getRegisterNo());
+            vh.setBrand(v.getBrand());
+            vh.setType(v.getType());
+            vh.setNoOfPassenger(v.getNoOfPassenger());
+            vh.setColor(v.getColor());
+            vh.setState(v.getState());
+
+            List<VehicleDetails> details = v.getVehicleDetails();
+            for (int i = 0; i < 1; i++) {
+                VehicleDetails vehicleDetails = details.get(i);
+                System.out.println(vehicleDetails.getFileName());
+
+                vh.setFilePath(vehicleDetails.getFileName());
+            }
+            vehicles.add(vh);
+        }
+        return vehicles;
+    }
 }

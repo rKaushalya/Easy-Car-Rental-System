@@ -55,6 +55,11 @@ public class VehicleController {
 
     @GetMapping(path = "/booking")
     public ResponseUtil loadVehicleToBookingForm(String brand) throws IOException {
-        return new ResponseUtil("OK","Successfully deleted.! ",vehicleService.loadDataToBookingPage(brand));
+        return new ResponseUtil("OK","Successfully loaded.! ",vehicleService.loadDataToBookingPage(brand));
+    }
+
+    @GetMapping(path = "/type")
+    public ResponseUtil loadVehicleBySelectedType(String type){
+        return new ResponseUtil("OK","Successfully loaded.! ",vehicleService.getVehicleBySelectedType(type));
     }
 }

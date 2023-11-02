@@ -14,3 +14,7 @@ function getPaymentId() {
         }
     });
 }
+
+function makeAPayment() {
+
+}

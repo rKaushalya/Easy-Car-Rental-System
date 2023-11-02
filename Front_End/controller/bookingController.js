@@ -153,6 +153,7 @@ function checkBookingStatus() {
         bookingId = $(this).parent().parent().parent().parent().parent().parent().children().eq(2).text();
         if (status==="Complete"){
             setView($("#paymentForm"));
+            getCarPriceForPaymentForm();
         }else{
             updateBookingState(bookingId,status);
         }
@@ -180,4 +181,17 @@ function updateBookingState(id,state) {
             console.log(error);
         }
     });
+}
+
+function getCarPriceForPaymentForm() {
+        $.ajax({
+            url: BASE_URL+'booking/price?bookId='+bookingId,
+            data: "json",
+            success: function (response) {
+                $("#txtForCar").val(response.data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
 }

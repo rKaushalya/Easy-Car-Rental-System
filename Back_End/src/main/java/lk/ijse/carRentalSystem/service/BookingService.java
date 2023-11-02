@@ -18,4 +18,6 @@ public interface BookingService {
     List<BookingViewDTO> getBookingDetailsForCustomer(String name);
 
     void updateBookingState(String bId,String state);
+
+    String getCarPriceForPayment(String id);
 }

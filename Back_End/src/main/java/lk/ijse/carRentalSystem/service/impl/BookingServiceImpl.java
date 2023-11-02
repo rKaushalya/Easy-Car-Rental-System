@@ -140,6 +140,11 @@ public class BookingServiceImpl implements BookingService {
         bookingRepo.updateBookingState(bId,state);
     }
 
+    @Override
+    public String getCarPriceForPayment(String id) {
+        return bookingRepo.getCarPrice(id);
+    }
+
     public String getNewBookId(String currentBookId){
         if (currentBookId != null) {
             String[] split = currentBookId.split("B0");

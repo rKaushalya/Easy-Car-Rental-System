@@ -49,4 +49,9 @@ public class BookingController {
         bookingService.updateBookingState(bookId,state);
         return new ResponseUtil("OK","Successfully Updated.!" ,bookId);
     }
+
+    @GetMapping(path = "/price")
+    public ResponseUtil getBookingCarPrice(String bookId){
+        return new ResponseUtil("OK","Successfully Load Price",bookingService.getCarPriceForPayment(bookId));
+    }
 }

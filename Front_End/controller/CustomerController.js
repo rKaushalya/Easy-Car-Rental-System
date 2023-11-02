@@ -291,17 +291,3 @@ function checkForBooking() {
         }
     });
 }
-
-function generateNewBookingId() {
-    $.ajax({
-        url: BASE_URL + 'booking/id',
-        dataType: "json",
-        success: function (response) {
-            let bookingId = response.data;
-            $("#bookingId").val(bookingId);
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
-}

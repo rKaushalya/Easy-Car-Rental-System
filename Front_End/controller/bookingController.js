@@ -6,6 +6,20 @@ $("#btnSentRequest").click(function () {
     bookingACar();
 });
 
+function generateNewBookingId() {
+    $.ajax({
+        url: BASE_URL + 'booking/id',
+        dataType: "json",
+        success: function (response) {
+            let bookingId = response.data;
+            $("#bookingId").val(bookingId);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
 function bookingACar() {
     let bookingData = {
         bookId : $("#bookingId").val(),
@@ -130,14 +144,17 @@ function getBookingDetailsForCustomer() {
     });
 }
 
+//for the payment update
+let bookingId;
+
 function checkBookingStatus() {
     $('#adminBookingView>tr ul li a').click(function () {
         let status = $(this).eq(0).text();
-        let bId = $(this).parent().parent().parent().parent().parent().parent().children().eq(2).text();
+        bookingId = $(this).parent().parent().parent().parent().parent().parent().children().eq(2).text();
         if (status==="Complete"){
             setView($("#paymentForm"));
         }else{
-            updateBookingState(bId,status);
+            updateBookingState(bookingId,status);
         }
     });
 }

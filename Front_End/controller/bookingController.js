@@ -59,7 +59,12 @@ function getAllBookingForAdmin() {
                 let pickupDate = b.pickupDate;
                 let driverState = b.driverState;
                 let state = b.state;
-                alert(b.state);
+
+                var dateObj1 = new Date(bookDate);
+                var formattedBookDate = dateObj1.toISOString().split('T')[0];
+
+                var dateObj2 = new Date(pickupDate);
+                var formattedPickupDate = dateObj2.toISOString().split('T')[0];
 
                 let btn = "<ul class=\"navbar-nav\">\n" +
                     "                            <li class=\"nav-item dropdown\">\n" +
@@ -76,7 +81,7 @@ function getAllBookingForAdmin() {
                     "                            </li>\n" +
                     "                        </ul>";
 
-                let row = `<tr><td>${id}</td><td>${email}</td><td>${bookDate}</td><td>${pickupDate}</td><td>${driverState}</td><td>${state}</td><td>${btn}</td></tr>`;
+                let row = `<tr><td>${id}</td><td>${email}</td><td>${formattedBookDate}</td><td>${formattedPickupDate}</td><td>${driverState}</td><td>${state}</td><td>${btn}</td></tr>`;
                 $("#adminBookingView").append(row);
             }
         },

@@ -158,7 +158,7 @@ function forgetPassword(id, password) {
         error: function (error) {
             console.log(error);
         }
-    })
+    });
 }
 
 function getNewCustomerId() {

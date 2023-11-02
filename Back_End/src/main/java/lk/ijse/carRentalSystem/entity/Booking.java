@@ -26,7 +26,7 @@ public class Booking {
     private String state;
     private String onlineOrPhysical;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER,orphanRemoval = true)
     private Customer customer;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

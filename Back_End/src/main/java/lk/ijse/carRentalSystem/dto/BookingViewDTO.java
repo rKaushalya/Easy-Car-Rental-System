@@ -18,6 +18,7 @@ public class BookingViewDTO {
 
     private String registerNo;
 
+    private String bookingId;
     private Date carBookDate;
     private Date pickupDate;
     private String driverState;

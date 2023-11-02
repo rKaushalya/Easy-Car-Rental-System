@@ -43,4 +43,10 @@ public class BookingController {
     public ResponseUtil getAllBookingsForCustomer(String name){
         return new ResponseUtil("OK","Successfully loaded.!",bookingService.getBookingDetailsForCustomer(name));
     }
+
+    @PutMapping
+    public ResponseUtil updateBooking(String bookId,String state){
+        bookingService.updateBookingState(bookId,state);
+        return new ResponseUtil("OK","Successfully Updated.!" ,bookId);
+    }
 }

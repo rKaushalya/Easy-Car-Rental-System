@@ -56,7 +56,7 @@ function setTheLastView() {
 }
 
 function clearAll() {
-    $("#dashBoardForm,#reportForm,#vehicleForm,#viewBookingForm,#viewCustomerForm,#viewDriverForm").css('display', 'none');
+    $("#dashBoardForm,#reportForm,#vehicleForm,#viewBookingForm,#viewCustomerForm,#viewDriverForm,#paymentForm").css('display', 'none');
 }
 
 function setView(viewOb) {

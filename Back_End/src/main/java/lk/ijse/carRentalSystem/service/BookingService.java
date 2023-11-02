@@ -16,4 +16,6 @@ public interface BookingService {
     List<BookingViewDTO> getBookingDetailsForAdmin();
 
     List<BookingViewDTO> getBookingDetailsForCustomer(String name);
+
+    void updateBookingState(String bId,String state);
 }

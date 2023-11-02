@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/dashBoardForm.css">
     <link rel="stylesheet" href="../css/reportForm.css">
     <link rel="stylesheet" href="../css/viewAdminBooking.css">
+    <link rel="stylesheet" href="../css/paymentForm.css">
 </head>
 <body>
 <header class="jumbotron text-white p-3">
@@ -219,8 +220,9 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">Customer Id</th>
+                    <th scope="col">Customer ID</th>
                     <th scope="col">Customer Email</th>
+                    <th scope="col">Booking ID</th>
                     <th scope="col">Booking Date</th>
                     <th scope="col">Pickup Date</th>
                     <th scope="col">Driver Status</th>
@@ -378,6 +380,38 @@
             </table>
         </div>
     </div>
+</main>
+
+<main id="paymentForm">
+    <section class="container text-center">
+        <h1>Payment</h1>
+        <form class="row g-3">
+            <div class="col-4">
+                <label for="txtPId" class="form-label">Payment Id</label>
+                <input type="text" name="cusId" class="form-control" id="txtPId" disabled>
+            </div>
+            <div class="col-4">
+                <label for="txtDamagePrice" class="form-label">Damage Price</label>
+                <input type="email" name="cusEmail" class="form-control" id="txtDamagePrice">
+            </div>
+            <div class="col-md-4">
+                <label for="txtExtraKM" class="form-label">Extra KM Price</label>
+                <input type="password" name="cusPassword" class="form-control" id="txtExtraKM" required>
+            </div>
+            <div class="col-4">
+                <label for="txtForCar" class="form-label">For The Car</label>
+                <input type="text" name="cusAddress" class="form-control" id="txtForCar" disabled>
+            </div>
+            <div class="col-4">
+                <label for="txtLateFee" class="form-label">Late fee</label>
+                <input type="tel" name="cusContact" class="form-control" id="txtLateFee">
+            </div>
+            <div style="height: 15px"></div>
+            <div class="col-12">
+                <button id="btnPay" type="button" class="btn btn-outline-primary">Pay</button>
+            </div>
+        </form>
+    </section>
 </main>
 
 <script src="../js/jquery-3.6.1.min.js"></script>

@@ -106,7 +106,7 @@ public class BookingServiceImpl implements BookingService {
             String bookingState = d.getBooking().getState();
             dto.add(new BookingViewDTO(d.getBooking().getCustomer().getCId(),d.getBooking().getCustomer().getName(),
                     d.getBooking().getCustomer().getEmail(),d.getBooking().getCustomer().getContactNo(),d.getBooking().getCustomer().getAddress(),
-                    d.getVehicle().getRegisterNo(),d.getCarBookDate(),d.getPickupDate(),dId,bookingState));
+                    d.getVehicle().getRegisterNo(),d.getBooking().getBookingId(),d.getCarBookDate(),d.getPickupDate(),dId,bookingState));
 
             System.out.println("This Booking is : "+bookingState);
         }
@@ -128,11 +128,16 @@ public class BookingServiceImpl implements BookingService {
             if (d.getBooking().getCustomer().getName().equals(name)){
                 dto.add(new BookingViewDTO(d.getBooking().getCustomer().getCId(),d.getBooking().getCustomer().getName(),
                         d.getBooking().getCustomer().getEmail(),d.getBooking().getCustomer().getContactNo(),d.getBooking().getCustomer().getAddress(),
-                        d.getVehicle().getRegisterNo(),d.getCarBookDate(),d.getPickupDate(),dId,bookingState));
+                        d.getVehicle().getRegisterNo(),d.getBooking().getBookingId(),d.getCarBookDate(),d.getPickupDate(),dId,bookingState));
                 System.out.println("This Booking is : "+bookingState);
             }
         }
         return dto;
+    }
+
+    @Override
+    public void updateBookingState(String bId, String state) {
+        bookingRepo.updateBookingState(bId,state);
     }
 
     public String getNewBookId(String currentBookId){

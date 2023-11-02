@@ -14,4 +14,6 @@ public interface BookingService {
     void addBooking(BookingDTO dto, MultipartFile file) throws IOException;
 
     List<BookingViewDTO> getBookingDetailsForAdmin();
+
+    List<BookingViewDTO> getBookingDetailsForCustomer(String name);
 }

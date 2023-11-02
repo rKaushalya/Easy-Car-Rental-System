@@ -89,6 +89,7 @@ $("#cusLoginCheck").click(function () {
             $("#lnkSingIn>i").css({
                 "display": "none"
             });
+            getBookingDetailsForCustomer();
             setView($("#indexForm"));
         },
         error: function (error) {

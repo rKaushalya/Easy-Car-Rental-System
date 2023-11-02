@@ -38,4 +38,9 @@ public class BookingController {
     public ResponseUtil getAllBookings(){
         return new ResponseUtil("OK","Successfully loaded.!",bookingService.getBookingDetailsForAdmin());
     }
+
+    @GetMapping(path = "/name")
+    public ResponseUtil getAllBookingsForCustomer(String name){
+        return new ResponseUtil("OK","Successfully loaded.!",bookingService.getBookingDetailsForCustomer(name));
+    }
 }

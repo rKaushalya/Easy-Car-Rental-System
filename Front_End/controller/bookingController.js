@@ -1,5 +1,6 @@
 
 getAllBookingForAdmin();
+getBookingDetailsForCustomer();
 
 $("#btnSentRequest").click(function () {
     bookingACar();
@@ -34,6 +35,7 @@ function bookingACar() {
         processData: false,
         data: data,
         success: function (res) {
+            getBookingDetailsForCustomer();
             alert(res.message);
         },
         error: function (error) {
@@ -83,6 +85,35 @@ function getAllBookingForAdmin() {
 
                 let row = `<tr><td>${id}</td><td>${email}</td><td>${formattedBookDate}</td><td>${formattedPickupDate}</td><td>${driverState}</td><td>${state}</td><td>${btn}</td></tr>`;
                 $("#adminBookingView").append(row);
+            }
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
+        }
+    });
+}
+
+function getBookingDetailsForCustomer() {
+    $("#tblViewCusBooking").empty();
+    let cusName = $("#lnkSingIn>a").text();
+
+    $.ajax({
+        url: BASE_URL + 'booking/name?name='+cusName,
+        dataType: "json",
+        success: function (response) {
+            let booking = response.data;
+            for (let i in booking) {
+                let b = booking[i];
+
+                let id = b.customerId;
+                let name = b.customerName;
+                let contact = b.customerContact;
+                let address = b.customerAddress;
+                let regNo = b.registerNo;
+                let state = b.state;
+
+                let row = `<tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${contact}</td><td>${regNo}</td><td>${state}</td></tr>`;
+                $("#tblViewCusBooking").append(row);
             }
         },
         error: function (error) {

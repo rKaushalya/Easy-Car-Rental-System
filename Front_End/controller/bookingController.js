@@ -1,6 +1,6 @@
-
 getAllBookingForAdmin();
 getBookingDetailsForCustomer();
+generateNewBookingId();
 
 $("#btnSentRequest").click(function () {
     bookingACar();
@@ -22,16 +22,16 @@ function generateNewBookingId() {
 
 function bookingACar() {
     let bookingData = {
-        bookId : $("#bookingId").val(),
-        customerName : $("#showCusId").text(),
-        registerNo : sampleRegNo,
-        location : $("#bLocation").val(),
-        lossDamagePrice : $("#bLossDamagePrice").val(),
-        onlineOrPhysical : $("#inputState").val(),
-        carPrice : $("#inputPrice").val(),
-        carBookDate : $("#bDate").val(),
-        pickupDate : $("#bPickupDate").val(),
-        driverState : $("#inputStat").val()
+        bookId: $("#bookingId").val(),
+        customerName: $("#showCusId").text(),
+        registerNo: sampleRegNo,
+        location: $("#bLocation").val(),
+        lossDamagePrice: $("#bLossDamagePrice").val(),
+        onlineOrPhysical: $("#inputState").val(),
+        carPrice: $("#inputPrice").val(),
+        carBookDate: $("#bDate").val(),
+        pickupDate: $("#bPickupDate").val(),
+        driverState: $("#inputStat").val()
     }
 
     var data = new FormData();
@@ -84,11 +84,11 @@ function getAllBookingForAdmin() {
                 var dateObj2 = new Date(pickupDate);
                 var formattedPickupDate = dateObj2.toISOString().split('T')[0];
 
-                let row;
-                if (state==="Complete"){
-                    row = "This Booking Complete";
-                }else {
-                    let btn = "<ul class=\"navbar-nav\">\n" +
+                let btn;
+                if (state === "Complete") {
+                    btn = "This Booking Complete";
+                } else {
+                    btn = "<ul class=\"navbar-nav\">\n" +
                         "                            <li class=\"nav-item dropdown\">\n" +
                         "                                <button class=\"btn btn-outline-warning dropdown-toggle\" data-bs-toggle=\"dropdown\"\n" +
                         "                                        aria-expanded=\"false\">\n" +
@@ -101,10 +101,8 @@ function getAllBookingForAdmin() {
                         "                                </ul>\n" +
                         "                            </li>\n" +
                         "                        </ul>";
-
-                    row = `<tr><td>${id}</td><td>${email}</td><td>${bookId}</td><td>${formattedBookDate}</td><td>${formattedPickupDate}</td><td>${driverState}</td><td>${state}</td><td>${btn}</td></tr>`;
                 }
-
+                let row = `<tr><td>${id}</td><td>${email}</td><td>${bookId}</td><td>${formattedBookDate}</td><td>${formattedPickupDate}</td><td>${driverState}</td><td>${state}</td><td>${btn}</td></tr>`;
                 $("#adminBookingView").append(row);
             }
             checkBookingStatus();
@@ -120,7 +118,7 @@ function getBookingDetailsForCustomer() {
     let cusName = $("#lnkSingIn>a").text();
 
     $.ajax({
-        url: BASE_URL + 'booking/name?name='+cusName,
+        url: BASE_URL + 'booking/name?name=' + cusName,
         dataType: "json",
         success: function (response) {
             let booking = response.data;
@@ -151,16 +149,16 @@ function checkBookingStatus() {
     $('#adminBookingView>tr ul li a').click(function () {
         let status = $(this).eq(0).text();
         bookingId = $(this).parent().parent().parent().parent().parent().parent().children().eq(2).text();
-        if (status==="Complete"){
+        if (status === "Complete") {
             setView($("#paymentForm"));
             getCarPriceForPaymentForm();
-        }else{
-            updateBookingState(bookingId,status);
+        } else {
+            updateBookingState(bookingId, status);
         }
     });
 }
 
-function updateBookingState(id,state) {
+function updateBookingState(id, state) {
     var data = new FormData();
     data.append("bookId", id);
     data.append("state", state);
@@ -184,14 +182,14 @@ function updateBookingState(id,state) {
 }
 
 function getCarPriceForPaymentForm() {
-        $.ajax({
-            url: BASE_URL+'booking/price?bookId='+bookingId,
-            data: "json",
-            success: function (response) {
-                $("#txtForCar").val(response.data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
+    $.ajax({
+        url: BASE_URL + 'booking/price?bookId=' + bookingId,
+        data: "json",
+        success: function (response) {
+            $("#txtForCar").val(response.data);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
 }

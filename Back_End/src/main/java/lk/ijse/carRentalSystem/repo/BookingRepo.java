@@ -16,4 +16,7 @@ public interface BookingRepo extends JpaRepository<Booking,String> {
 
     @Query(value = "SELECT carPrice FROM booking WHERE bookingId=:id",nativeQuery = true)
     String getCarPrice(@Param("id") String id);
+
+    @Query(value = "SELECT * FROM booking WHERE bookingId=:bId",nativeQuery = true)
+    Booking getBookingDetails(@Param("bId") String bId);
 }

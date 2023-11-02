@@ -3,7 +3,6 @@ var BASE_URL = "http://localhost:8080/Back_End_war/";
 getAllCustomers();
 getNewCustomerId();
 getVehiclesDetails();
-generateNewBookingId();
 
 $("#btnCustomerRegister").click(function () {
     saveCustomer();

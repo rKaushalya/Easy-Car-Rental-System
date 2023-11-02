@@ -6,6 +6,11 @@ $("#btnSentRequest").click(function () {
     bookingACar();
 });
 
+$("#lnkBookState li a").click(function () {
+    let state = $(this).text();
+    getDetailsForSelectedState(state);
+});
+
 function generateNewBookingId() {
     $.ajax({
         url: BASE_URL + 'booking/id',
@@ -190,6 +195,60 @@ function getCarPriceForPaymentForm() {
         },
         error: function (error) {
             console.log(error);
+        }
+    });
+}
+
+function getDetailsForSelectedState(state) {
+    $("#adminBookingView").empty();
+
+    $.ajax({
+        url: BASE_URL + 'booking/state?state=' + state,
+        dataType: "json",
+        success: function (response) {
+            let booking = response.data;
+            for (let i in booking) {
+                let b = booking[i];
+
+                let id = b.customerId;
+                let email = b.customerEmail;
+                let bookDate = b.carBookDate;
+                let pickupDate = b.pickupDate;
+                let driverState = b.driverState;
+                let state = b.state;
+                let bookId = b.bookingId;
+
+                var dateObj1 = new Date(bookDate);
+                var formattedBookDate = dateObj1.toISOString().split('T')[0];
+
+                var dateObj2 = new Date(pickupDate);
+                var formattedPickupDate = dateObj2.toISOString().split('T')[0];
+
+                let btn;
+                if (state === "Complete") {
+                    btn = "This Booking Complete";
+                } else {
+                    btn = "<ul class=\"navbar-nav\">\n" +
+                        "                            <li class=\"nav-item dropdown\">\n" +
+                        "                                <button class=\"btn btn-outline-warning dropdown-toggle\" data-bs-toggle=\"dropdown\"\n" +
+                        "                                        aria-expanded=\"false\">\n" +
+                        "                                    Status\n" +
+                        "                                </button>\n" +
+                        "                                <ul class=\"dropdown-menu dropdown-menu-start\">\n" +
+                        "                                    <li><a class=\"dropdown-item\" href=\"#\">Accept</a></li>\n" +
+                        "                                    <li><a class=\"dropdown-item\" href=\"#\">Decline</a></li>\n" +
+                        "                                    <li><a class=\"dropdown-item\" href=\"#\">Complete</a></li>\n" +
+                        "                                </ul>\n" +
+                        "                            </li>\n" +
+                        "                        </ul>";
+                }
+                let row = `<tr><td>${id}</td><td>${email}</td><td>${bookId}</td><td>${formattedBookDate}</td><td>${formattedPickupDate}</td><td>${driverState}</td><td>${state}</td><td>${btn}</td></tr>`;
+                $("#adminBookingView").append(row);
+            }
+            checkBookingStatus();
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
         }
     });
 }

@@ -145,6 +145,29 @@ public class BookingServiceImpl implements BookingService {
         return bookingRepo.getCarPrice(id);
     }
 
+    @Override
+    public List<BookingViewDTO> getBookingDetailsForSelectedState(String state) {
+        List<BookingDetails> all = bookingDetailsRepo.findAll();
+        List<BookingViewDTO> dto = new ArrayList<>();
+        for (BookingDetails d : all) {
+            if (d.getBooking().getState().equals(state)) {
+                String dId = "";
+                if (d.getDriver().getDriverId() == null) {
+                    dId = "No Need Driver";
+                } else {
+                    dId = d.getDriver().getDriverId();
+                }
+                String bookingState = d.getBooking().getState();
+                dto.add(new BookingViewDTO(d.getBooking().getCustomer().getCId(), d.getBooking().getCustomer().getName(),
+                        d.getBooking().getCustomer().getEmail(), d.getBooking().getCustomer().getContactNo(), d.getBooking().getCustomer().getAddress(),
+                        d.getVehicle().getRegisterNo(), d.getBooking().getBookingId(), d.getCarBookDate(), d.getPickupDate(), dId, bookingState));
+
+                System.out.println("This Booking is : " + bookingState);
+            }
+        }
+        return dto;
+    }
+
     public String getNewBookId(String currentBookId){
         if (currentBookId != null) {
             String[] split = currentBookId.split("B0");

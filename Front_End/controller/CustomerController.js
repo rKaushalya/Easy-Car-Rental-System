@@ -205,6 +205,35 @@ function getVehiclesDetails() {
 
 //for book a car
 let sampleRegNo;
+//for get Total Logic
+let dailyRatePrice;
+let monthlyRatePrice;
+
+//calculate total price
+$(function () {
+    $("#bPickupDate").change(function (event) {
+        let bookDate = $("#bDate").val();
+        let picDate = $("#bPickupDate").val();
+
+        var startDate = new Date(bookDate);
+        var endDate = new Date(picDate);
+
+        var difference = endDate.getTime() - startDate.getTime();
+
+        var days = difference / (1000 * 60 * 60 * 24);
+
+        days = Math.round(days);
+        var price = Math.round(dailyRatePrice);
+        var mRate = Math.round(monthlyRatePrice);
+
+        if (days!==30){
+            $("#inputPrice").val(price*days);
+        }else {
+            $("#inputPrice").val(monthlyRatePrice);
+        }
+
+    });
+})
 
 function checkForBooking() {
     $("#tblViewCusVehicle>tr").click(function () {
@@ -220,8 +249,8 @@ function checkForBooking() {
                     let veh = response.data;
                     sampleRegNo = veh.registerNo;
                     let brand = veh.brand;
-                    let mRate = veh.monthlyRate;
-                    let dRate = veh.dailyRate;
+                    monthlyRatePrice = veh.monthlyRate;
+                    dailyRatePrice = veh.dailyRate;
                     let fMileage = veh.freeMileage;
                     let extraKM = veh.priceForExtraKM;
                     let transmission = veh.transmissionType;
@@ -241,7 +270,7 @@ function checkForBooking() {
                     $("#scroll").append(div3);
                     $("#scroll").append(div4);
 
-                    let row = `<tr><td>${dRate}</td><td>${mRate}</td><td>${extraKM}</td><td>${fMileage}</td><td>${transmission}</td></tr>`;
+                    let row = `<tr><td>${dailyRatePrice}</td><td>${monthlyRatePrice}</td><td>${extraKM}</td><td>${fMileage}</td><td>${transmission}</td></tr>`;
                     $("#tblCusBookingLoadData").append(row);
                     $("#showBrand").text(brand);
                     if (type==="General"){

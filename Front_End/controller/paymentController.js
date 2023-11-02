@@ -35,6 +35,7 @@ function makeAPayment() {
         data: JSON.stringify(paymentData),
         success: function (resp) {
             alert(resp.message);
+            setView($("#viewBookingForm"));
         },
         error: function (error) {
             console.log(error);

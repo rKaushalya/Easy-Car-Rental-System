@@ -158,6 +158,7 @@ function forgetPassword(id, password) {
         success: function (res) {
             console.log(res.message);
             alert(res.message);
+            setView($("#loginForm"));
         },
         error: function (error) {
             console.log(error);

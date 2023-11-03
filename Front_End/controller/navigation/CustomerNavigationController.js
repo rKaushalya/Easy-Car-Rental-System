@@ -89,6 +89,8 @@ $("#cusLoginCheck").click(function () {
             $("#lnkSingIn>i").css({
                 "display": "none"
             });
+            $("#cusLoginEmail").val("");
+            $("#cusLoginPassword").val("");
             getBookingDetailsForCustomer();
             setView($("#indexForm"));
         },

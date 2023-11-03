@@ -19,5 +19,12 @@
 }
 
 #tblViewCusVehicle tr:hover{
-    background-color: #9eeaf9;
+    background-color: #D6EEEE;
+    cursor: pointer;
+}
+#tblViewCusVehicle tr img{
+    border-radius: 6px;
+}
+#tblViewCusVehicle{
+    background-color: #E6E6E6;
 }

@@ -157,6 +157,9 @@ function forgetPassword(id, password) {
         data: data,
         success: function (res) {
             console.log(res.message);
+            $("#cusForgetEmail").val("");
+            $("#cusForgetPassword").val("");
+            $("#cusNewPassword").empty();
             alert(res.message);
             setView($("#loginForm"));
         },
@@ -197,7 +200,7 @@ function getVehiclesDetails() {
                 console.log(frontView);
 
                 let row = `<tr><td>${brand}</td><td>${type}</td><td>${color}</td><td>${noOfPassenger}</td>
-                <td><img src="${"asset/img/uploads/" + frontView}" width="100px" height="80px"></td></tr>`;
+                <td><img src="${"asset/img/uploads/" + frontView}" width="120px" height="80px"></td></tr>`;
                 $("#tblViewCusVehicle").append(row);
             }
             checkForBooking();

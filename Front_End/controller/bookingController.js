@@ -55,6 +55,7 @@ function bookingACar() {
         data: data,
         success: function (res) {
             getBookingDetailsForCustomer();
+            getAllBookingForAdmin();
             alert(res.message);
             setView($("#customerBookingViewForm"));
         },

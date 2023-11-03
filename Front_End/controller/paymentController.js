@@ -35,6 +35,8 @@ function makeAPayment() {
         contentType: "application/json",
         data: JSON.stringify(paymentData),
         success: function (resp) {
+            getAllBookingForAdmin();
+            getBookingDetailsForCustomer();
             alert(resp.message);
             setView($("#viewBookingForm"));
         },
@@ -43,3 +45,33 @@ function makeAPayment() {
         }
     });
 }
+
+$(function () {
+    $("#txtDamagePrice").change(function () {
+        let tot = Math.round($("#txtForCar").val());
+        let km = Math.round($("#txtExtraKM").val());
+        let damage = Math.round($("#txtDamagePrice").val());
+        let late = Math.round($("#txtLateFee").val());
+        $("#txtTotal").val(tot+km+damage+late);
+    });
+})
+
+$(function () {
+    $("#txtExtraKM").change(function () {
+        let tot = Math.round($("#txtForCar").val());
+        let km = Math.round($("#txtExtraKM").val());
+        let damage = Math.round($("#txtDamagePrice").val());
+        let late = Math.round($("#txtLateFee").val());
+        $("#txtTotal").val(tot+km+damage+late);
+    });
+})
+
+$(function () {
+    $("#txtLateFee").change(function () {
+        let tot = Math.round($("#txtForCar").val());
+        let km = Math.round($("#txtExtraKM").val());
+        let damage = Math.round($("#txtDamagePrice").val());
+        let late = Math.round($("#txtLateFee").val());
+        $("#txtTotal").val(tot+km+damage+late);
+    });
+})

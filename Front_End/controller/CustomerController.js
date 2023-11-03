@@ -3,6 +3,7 @@ var BASE_URL = "http://localhost:8080/Back_End_war/";
 getAllCustomers();
 getNewCustomerId();
 getVehiclesDetails();
+getCusCount();
 
 $("#btnCustomerRegister").click(function () {
     saveCustomer();
@@ -322,6 +323,19 @@ function searchVehicleBySelectedType(type) {
                 $("#tblViewCusVehicle").append(row);
             }
             checkForBooking();
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
+        }
+    });
+}
+
+function getCusCount() {
+    $.ajax({
+        url: BASE_URL + 'customer/count',
+        dataType: "json",
+        success: function (response) {
+            $("#cusCount").text(response.data);
         },
         error: function (error) {
             alert(error.responseJSON.message);

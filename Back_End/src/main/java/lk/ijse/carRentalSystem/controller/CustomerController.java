@@ -65,4 +65,9 @@ public class CustomerController {
     public ResponseUtil checkCustomer(String email,String password){
         return new ResponseUtil("OK","Customer authenticated.!",customerService.checkCustomerLogin(email,password));
     }
+
+    @GetMapping(path = "/count")
+    public ResponseUtil getCustomerCount(){
+        return new ResponseUtil("OK","Customer Count loaded.!",customerService.getCustomerCount());
+    }
 }

@@ -122,6 +122,16 @@ public class CustomerServiceImpl implements CustomerService {
         return new LoginCustomerDTO(customer.getCId(),customer.getName());
     }
 
+    @Override
+    public int getCustomerCount() {
+        int i = 0;
+        List<Customer> all = customerRepo.findAll();
+        for (Customer c: all) {
+            i++;
+        }
+        return i;
+    }
+
     public String getNewCusId(String currentCusId){
         if (currentCusId != null) {
             String[] split = currentCusId.split("C0");

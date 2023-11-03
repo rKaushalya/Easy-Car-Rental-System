@@ -23,4 +23,6 @@ public interface CustomerService {
     String getNewCustomerId();
 
     LoginCustomerDTO checkCustomerLogin(String email, String password);
+
+    int getCustomerCount();
 }

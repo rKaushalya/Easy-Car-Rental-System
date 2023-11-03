@@ -1,5 +1,6 @@
 package lk.ijse.carRentalSystem.service;
 
+import lk.ijse.carRentalSystem.dto.BookCountDTO;
 import lk.ijse.carRentalSystem.dto.BookingDTO;
 import lk.ijse.carRentalSystem.dto.BookingViewDTO;
 import lk.ijse.carRentalSystem.entity.BookingDetails;
@@ -22,4 +23,6 @@ public interface BookingService {
     String getCarPriceForPayment(String id);
 
     List<BookingViewDTO> getBookingDetailsForSelectedState(String state);
+
+    BookCountDTO getBookingCount();
 }

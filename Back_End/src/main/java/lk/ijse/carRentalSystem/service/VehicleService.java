@@ -22,4 +22,6 @@ public interface VehicleService {
     CustomerBookVehicleDTO loadDataToBookingPage(String name);
 
     List<VehicleShowDTO> getVehicleBySelectedType(String type);
+
+    int getVehicleCount();
 }

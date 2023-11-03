@@ -268,4 +268,14 @@ public class VehicleServiceImpl implements VehicleService {
         }
         return vehicles;
     }
+
+    @Override
+    public int getVehicleCount() {
+        int j = 0;
+        List<Vehicle> all = vehicleRepo.findAll();
+        for (Vehicle vehicle : all) {
+            j++;
+        }
+        return j;
+    }
 }

@@ -1,4 +1,5 @@
 getAllVehicles();
+getCarCount();
 
 $("#btnVehicleAdd").click(function () {
     addVehicle();
@@ -215,6 +216,19 @@ function updateVehicle() {
         },
         error: function (error) {
             console.log(error)
+        }
+    });
+}
+
+function getCarCount() {
+    $.ajax({
+        url: BASE_URL + 'vehicle/count',
+        dataType: "json",
+        success: function (response) {
+            $("#carCount").text(response.data);
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
         }
     });
 }

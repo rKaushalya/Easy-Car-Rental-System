@@ -62,4 +62,9 @@ public class VehicleController {
     public ResponseUtil loadVehicleBySelectedType(String type){
         return new ResponseUtil("OK","Successfully loaded.! ",vehicleService.getVehicleBySelectedType(type));
     }
+
+    @GetMapping(path = "/count")
+    public ResponseUtil getVehicleCount(){
+        return new ResponseUtil("OK","Successfully loaded.! ",vehicleService.getVehicleCount());
+    }
 }

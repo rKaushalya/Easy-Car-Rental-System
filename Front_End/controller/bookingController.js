@@ -1,6 +1,7 @@
 getAllBookingForAdmin();
 getBookingDetailsForCustomer();
 generateNewBookingId();
+getBookCount();
 
 $("#btnSentRequest").click(function () {
     bookingACar();
@@ -249,6 +250,21 @@ function getDetailsForSelectedState(state) {
                 $("#adminBookingView").append(row);
             }
             checkBookingStatus();
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
+        }
+    });
+}
+
+function getBookCount() {
+    $.ajax({
+        url: BASE_URL + 'booking/count',
+        dataType: "json",
+        success: function (response) {
+            let b = response.data;
+            $("#bookCount").text(b.bookCount);
+            $("#pendingBookCount").text(b.pendingCount);
         },
         error: function (error) {
             alert(error.responseJSON.message);

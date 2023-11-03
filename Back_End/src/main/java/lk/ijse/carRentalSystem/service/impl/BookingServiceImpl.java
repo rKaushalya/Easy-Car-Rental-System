@@ -1,5 +1,6 @@
 package lk.ijse.carRentalSystem.service.impl;
 
+import lk.ijse.carRentalSystem.dto.BookCountDTO;
 import lk.ijse.carRentalSystem.dto.BookingDTO;
 import lk.ijse.carRentalSystem.dto.BookingViewDTO;
 import lk.ijse.carRentalSystem.entity.*;
@@ -166,6 +167,20 @@ public class BookingServiceImpl implements BookingService {
             }
         }
         return dto;
+    }
+
+    @Override
+    public BookCountDTO getBookingCount() {
+        int i = 0;
+        int j = 0;
+        List<Booking> all = bookingRepo.findAll();
+        for (Booking b: all) {
+            i++;
+            if (b.getState().equals("Pending")){
+                j++;
+            }
+        }
+        return new BookCountDTO(i,j);
     }
 
     public String getNewBookId(String currentBookId){

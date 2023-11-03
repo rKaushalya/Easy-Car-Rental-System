@@ -59,4 +59,9 @@ public class BookingController {
     public ResponseUtil getBookingState(String state){
         return new ResponseUtil("OK","Successfully Load select state",bookingService.getBookingDetailsForSelectedState(state));
     }
+
+    @GetMapping(path = "/count")
+    public ResponseUtil getBookingCount(){
+        return new ResponseUtil("OK","Successfully Load select state",bookingService.getBookingCount());
+    }
 }

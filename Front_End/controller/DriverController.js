@@ -217,10 +217,13 @@ function getDriverSchedule() {
             let pickup = dS.pickupDate;
             let brand = dS.carName;
 
-
+            var dateObj1 = new Date(bookDate);
+            var dateObj2 = new Date(pickup);
+            var formattedDate1 = dateObj1.toISOString().split('T')[0];
+            var formattedDate2 = dateObj2.toISOString().split('T')[0];
 
             if (name!==undefined){
-                let row = `<tr><td>${bookDate}</td><td>${name}</td><td>${contact}</td><td>${pickup}</td><td>${brand}</td></tr>`;
+                let row = `<tr><td>${formattedDate1}</td><td>${name}</td><td>${contact}</td><td>${formattedDate2}</td><td>${brand}</td></tr>`;
                 $("#tblDriverSchedule").append(row);
             }
         },

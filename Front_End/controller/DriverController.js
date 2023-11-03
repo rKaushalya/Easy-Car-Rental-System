@@ -182,18 +182,50 @@ function updateDriver() {
     });
 }
 
+//for view driver schedule
+let sampleDriverId;
+
 function checkDriverLogin() {
-    let dId = $("#logDriverId").val();
+    sampleDriverId = $("#logDriverId").val();
 
     $.ajax({
-        url: 'http://localhost:8080/Back_End_war/driver/check?driverId='+dId,
+        url: 'http://localhost:8080/Back_End_war/driver/check?driverId='+sampleDriverId,
         dataType: "json",
         success: function (resp) {
+            getDriverSchedule();
             setView($("#driverForm"));
         },
         error: function (error) {
             console.log(error);
             alert("Wrong id.!");
+        }
+    });
+}
+
+function getDriverSchedule() {
+    $("#tblDriverSchedule").empty();
+
+    $.ajax({
+        url: 'http://localhost:8080/Back_End_war/driver/schedule?driverId='+sampleDriverId,
+        dataType: "json",
+        success: function (resp) {
+            let dS = resp.data;
+
+            let bookDate = dS.bookingDate;
+            let name = dS.cusName;
+            let contact = dS.cusContact;
+            let pickup = dS.pickupDate;
+            let brand = dS.carName;
+
+
+
+            if (name!==undefined){
+                let row = `<tr><td>${bookDate}</td><td>${name}</td><td>${contact}</td><td>${pickup}</td><td>${brand}</td></tr>`;
+                $("#tblDriverSchedule").append(row);
+            }
+        },
+        error: function (error) {
+            console.log(error);
         }
     });
 }

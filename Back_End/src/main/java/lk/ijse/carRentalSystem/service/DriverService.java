@@ -1,6 +1,7 @@
 package lk.ijse.carRentalSystem.service;
 
 import lk.ijse.carRentalSystem.dto.DriverDTO;
+import lk.ijse.carRentalSystem.dto.DriverScheduleDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -20,4 +21,6 @@ public interface DriverService {
     DriverDTO findDriverByName(String name);
 
     boolean checkDriverLogin(String driverId);
+
+    DriverScheduleDTO loadDriverSchedule(String dId);
 }

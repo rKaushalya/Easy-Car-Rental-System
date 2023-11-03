@@ -63,4 +63,9 @@ public class DriverController {
     public ResponseUtil checkDriverLogin(String driverId){
         return new ResponseUtil("OK","Successfully get all",driverService.checkDriverLogin(driverId));
     }
+
+    @GetMapping(path = "/schedule")
+    public ResponseUtil getDriverSchedule(String driverId){
+        return new ResponseUtil("OK","Successfully get Driver Schedule",driverService.loadDriverSchedule(driverId));
+    }
 }

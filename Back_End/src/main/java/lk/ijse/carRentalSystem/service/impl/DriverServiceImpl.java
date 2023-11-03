@@ -1,8 +1,12 @@
 package lk.ijse.carRentalSystem.service.impl;
 
 import lk.ijse.carRentalSystem.dto.DriverDTO;
+import lk.ijse.carRentalSystem.dto.DriverScheduleDTO;
+import lk.ijse.carRentalSystem.entity.BookingDetails;
 import lk.ijse.carRentalSystem.entity.Driver;
 import lk.ijse.carRentalSystem.entity.DriverDetails;
+import lk.ijse.carRentalSystem.repo.BookingDetailsRepo;
+import lk.ijse.carRentalSystem.repo.BookingRepo;
 import lk.ijse.carRentalSystem.repo.DriverDetailsRepo;
 import lk.ijse.carRentalSystem.repo.DriverRepo;
 import lk.ijse.carRentalSystem.service.DriverService;
@@ -27,6 +31,9 @@ public class DriverServiceImpl implements DriverService {
 
     @Autowired
     DriverDetailsRepo driverDetailsRepo;
+
+    @Autowired
+    BookingDetailsRepo bookingDetailsRepo;
 
     private final String FOLDER_PATH = "C:\\Users\\ASUS\\Documents\\Car rental Images\\";
 
@@ -125,6 +132,24 @@ public class DriverServiceImpl implements DriverService {
     public boolean checkDriverLogin(String driverId) {
         Driver driver = driverRepo.findDriverByDriverId(driverId);
         return driver.getDriverId().equals(driverId);
+    }
+
+    @Override
+    public DriverScheduleDTO loadDriverSchedule(String dId) {
+        DriverScheduleDTO dto = new DriverScheduleDTO();
+        List<BookingDetails> all = bookingDetailsRepo.findAll();
+        for (BookingDetails b : all) {
+            if (b.getDriver()!=null){
+                if (b.getDriver().getDriverId().equals(dId) && b.getBooking().getState().equals("Accept")){
+                    dto.setBookingDate(b.getCarBookDate());
+                    dto.setCusName(b.getBooking().getCustomer().getName());
+                    dto.setCusContact(b.getBooking().getCustomer().getContactNo());
+                    dto.setPickupDate(b.getPickupDate());
+                    dto.setCarName(b.getVehicle().getBrand());
+                }
+            }
+        }
+        return dto;
     }
 
     public String newDriverID(String currentDriverId) {

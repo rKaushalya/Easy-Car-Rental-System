@@ -17,10 +17,13 @@
     opacity: .5;
     font-size: 32px;
 }
-
+#tblViewCusVehicle tr{
+    transition: 1s;
+}
 #tblViewCusVehicle tr:hover{
     background-color: #D6EEEE;
     cursor: pointer;
+    transform: scale(1.1);
 }
 #tblViewCusVehicle tr img{
     border-radius: 6px;

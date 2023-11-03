@@ -1,19 +1,40 @@
 #dashBoardForm{
     position: relative;
-    top: 100px;
+    top: 120px;
 }
 #dashBoardForm>div>div>div{
     position: relative;
     height: 200px;
-    width: 200px;
-    border: 1px solid black;
+    width: 350px;
+    border-radius: 5px;
     margin: 20px;
+    transition: 1s;
+}
+#dashBoardForm>div>div>div:hover{
+    transform: scale(1.1);
+    background-color: #ADD8E6;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgb(0, 255, 255);
 }
 #dashBoardForm>div{
     position: relative;
-    width: 60vw;
+    width: 80vw;
     height: 70vh;
     right: 0;
-    left: 0;
+    left: 2%;
     margin: auto;
+}
+#dashBoardForm>div>div>div i{
+    position: relative;
+    top: 30px;
+    font-size: 30px;
+}
+#dashBoardForm>div>div>div h1{
+    position: relative;
+    top: 35px;
+}
+#dashBoardForm>div>div>div p{
+    position: relative;
+    top: 40px;
+    font-family: cera-round-pro, "Helvetica Neue", Helvetica, Arial, sans-serif;;
 }

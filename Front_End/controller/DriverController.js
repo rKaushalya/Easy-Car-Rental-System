@@ -47,6 +47,7 @@ function saveDriver() {
             alert(res.message);
             getNewDriverId();
             getAllDrivers();
+            getDriverCount();
         },
         error: function (error) {
             console.log(error)
@@ -143,6 +144,7 @@ function deleteDriver(){
             alert(res.message);
             getAllDrivers();
             getNewDriverId();
+            deleteDriver();
         },
         error: function (error) {
             console.log(error)
@@ -176,6 +178,7 @@ function updateDriver() {
             alert(res.message);
             getNewDriverId();
             getAllDrivers();
+            getDriverCount();
         },
         error: function (error) {
             console.log(error)

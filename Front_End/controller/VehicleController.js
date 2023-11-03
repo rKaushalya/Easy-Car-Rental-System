@@ -85,6 +85,7 @@ function addVehicle() {
         success: function (res) {
             alert(res.message);
             getAllVehicles();
+            getCarCount();
         },
         error: function (error) {
             console.log(error)
@@ -99,6 +100,7 @@ function deleteVehicle() {
         method: "delete",
         success: function (response) {
             getAllVehicles();
+            getCarCount();
             alert(response.message);
         },
         error: function (error) {
@@ -213,6 +215,7 @@ function updateVehicle() {
         success: function (res) {
             alert(res.message);
             getAllVehicles();
+            getCarCount();
         },
         error: function (error) {
             console.log(error)

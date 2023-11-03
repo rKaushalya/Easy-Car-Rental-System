@@ -59,6 +59,7 @@ function bookingACar() {
             getAllBookingForAdmin();
             alert(res.message);
             setView($("#customerBookingViewForm"));
+            getBookCount();
         },
         error: function (error) {
             console.log(error.responseJSON.message);
@@ -181,6 +182,7 @@ function updateBookingState(id, state) {
         data: data,
         success: function (res) {
             getAllBookingForAdmin();
+            getBookCount();
             getBookingDetailsForCustomer();
             alert(res.message);
         },

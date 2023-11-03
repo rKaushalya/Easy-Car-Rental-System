@@ -62,7 +62,7 @@ function saveCustomer() {
             $("#lnkSingIn>i").css({
                 "display": "none"
             });
-
+            getCusCount();
             setView($("#indexForm"));
         },
         error: function (error) {
@@ -117,6 +117,7 @@ function deleteCustomer(id) {
         method: 'delete',
         success: function (res) {
             console.log(res.message);
+            getCusCount();
             return true;
         },
         error: function (error) {

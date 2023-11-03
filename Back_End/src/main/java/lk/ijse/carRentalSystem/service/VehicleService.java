@@ -1,6 +1,7 @@
 package lk.ijse.carRentalSystem.service;
 
 import lk.ijse.carRentalSystem.dto.CustomerBookVehicleDTO;
+import lk.ijse.carRentalSystem.dto.VehicleCountDTO;
 import lk.ijse.carRentalSystem.dto.VehicleDTO;
 import lk.ijse.carRentalSystem.dto.VehicleShowDTO;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,5 +24,5 @@ public interface VehicleService {
 
     List<VehicleShowDTO> getVehicleBySelectedType(String type);
 
-    int getVehicleCount();
+    VehicleCountDTO getVehicleCount();
 }

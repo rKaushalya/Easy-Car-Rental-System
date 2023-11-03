@@ -1,6 +1,7 @@
 package lk.ijse.carRentalSystem.service.impl;
 
 import lk.ijse.carRentalSystem.dto.CustomerBookVehicleDTO;
+import lk.ijse.carRentalSystem.dto.VehicleCountDTO;
 import lk.ijse.carRentalSystem.dto.VehicleDTO;
 import lk.ijse.carRentalSystem.dto.VehicleShowDTO;
 import lk.ijse.carRentalSystem.entity.Vehicle;
@@ -270,12 +271,16 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public int getVehicleCount() {
+    public VehicleCountDTO getVehicleCount() {
         int j = 0;
+        int i = 0;
         List<Vehicle> all = vehicleRepo.findAll();
-        for (Vehicle vehicle : all) {
+        for (Vehicle v : all) {
             j++;
+            if (v.getState().equals("Maintenance")){
+                i++;
+            }
         }
-        return j;
+        return new VehicleCountDTO(j,i);
     }
 }

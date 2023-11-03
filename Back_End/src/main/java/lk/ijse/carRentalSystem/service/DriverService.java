@@ -23,4 +23,6 @@ public interface DriverService {
     boolean checkDriverLogin(String driverId);
 
     DriverScheduleDTO loadDriverSchedule(String dId);
+
+    int getDriverCount();
 }

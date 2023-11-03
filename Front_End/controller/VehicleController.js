@@ -225,7 +225,9 @@ function getCarCount() {
         url: BASE_URL + 'vehicle/count',
         dataType: "json",
         success: function (response) {
-            $("#carCount").text(response.data);
+            let v = response.data;
+            $("#carCount").text(v.vehicle);
+            $("#maintenanceVehicleCount").text(v.maintenance);
         },
         error: function (error) {
             alert(error.responseJSON.message);

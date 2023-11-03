@@ -1,5 +1,6 @@
 getNewDriverId();
 getAllDrivers();
+getDriverCount();
 
 $("#btnDriverAdd").click(function () {
     saveDriver();
@@ -229,6 +230,19 @@ function getDriverSchedule() {
         },
         error: function (error) {
             console.log(error);
+        }
+    });
+}
+
+function getDriverCount() {
+    $.ajax({
+        url: BASE_URL + 'driver/count',
+        dataType: "json",
+        success: function (response) {
+            $("#driverCount").text(response.data);
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
         }
     });
 }

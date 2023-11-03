@@ -152,6 +152,16 @@ public class DriverServiceImpl implements DriverService {
         return dto;
     }
 
+    @Override
+    public int getDriverCount() {
+        int i = 0;
+        List<Driver> all = driverRepo.findAll();
+        for (Driver v: all) {
+            i++;
+        }
+        return i;
+    }
+
     public String newDriverID(String currentDriverId) {
         if (currentDriverId != null) {
             String[] split = currentDriverId.split("D0");

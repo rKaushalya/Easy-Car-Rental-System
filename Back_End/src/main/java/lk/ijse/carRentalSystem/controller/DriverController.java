@@ -68,4 +68,9 @@ public class DriverController {
     public ResponseUtil getDriverSchedule(String driverId){
         return new ResponseUtil("OK","Successfully get Driver Schedule",driverService.loadDriverSchedule(driverId));
     }
+
+    @GetMapping(path = "/count")
+    public ResponseUtil getDriverCount(){
+        return new ResponseUtil("OK","Successfully get Driver Count",driverService.getDriverCount());
+    }
 }

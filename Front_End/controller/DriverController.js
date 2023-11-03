@@ -16,6 +16,9 @@ $("#btnDriverDelete").click(function () {
 $("#btnUpdateDriver").click(function () {
     updateDriver();
 });
+$("#lnkDriverLogin").click(function () {
+    checkDriverLogin();
+});
 
 function saveDriver() {
     var driverData = {
@@ -52,7 +55,7 @@ function saveDriver() {
 
 function getNewDriverId() {
     $.ajax({
-        url: BASE_URL + 'driver/id',
+        url: 'http://localhost:8080/Back_End_war/driver/id',
         dataType: "json",
         success: function (response) {
             $("#driverId").html(response.data);
@@ -67,7 +70,7 @@ function getAllDrivers() {
     $("#tblDriverView").empty();
 
     $.ajax({
-        url: BASE_URL + 'driver',
+        url: 'http://localhost:8080/Back_End_war/driver',
         dataType: "json",
         success: function (response) {
             let driver = response.data;
@@ -175,6 +178,22 @@ function updateDriver() {
         },
         error: function (error) {
             console.log(error)
+        }
+    });
+}
+
+function checkDriverLogin() {
+    let dId = $("#logDriverId").val();
+
+    $.ajax({
+        url: 'http://localhost:8080/Back_End_war/driver/check?driverId='+dId,
+        dataType: "json",
+        success: function (resp) {
+            setView($("#driverForm"));
+        },
+        error: function (error) {
+            console.log(error);
+            alert("Wrong id.!");
         }
     });
 }

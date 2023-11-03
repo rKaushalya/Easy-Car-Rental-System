@@ -58,4 +58,9 @@ public class DriverController {
         driverService.updateDriver(driverDTO,file);
         return new ResponseUtil("OK","Update Success.!",driverDTO.getDriverId());
     }
+
+    @GetMapping(path = "/check")
+    public ResponseUtil checkDriverLogin(String driverId){
+        return new ResponseUtil("OK","Successfully get all",driverService.checkDriverLogin(driverId));
+    }
 }

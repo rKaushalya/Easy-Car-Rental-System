@@ -121,6 +121,12 @@ public class DriverServiceImpl implements DriverService {
                 ,driver.getCity(),driver.getDriverDetails().getLicenseNo());
     }
 
+    @Override
+    public boolean checkDriverLogin(String driverId) {
+        Driver driver = driverRepo.findDriverByDriverId(driverId);
+        return driver.getDriverId().equals(driverId);
+    }
+
     public String newDriverID(String currentDriverId) {
         if (currentDriverId != null) {
             String[] split = currentDriverId.split("D0");

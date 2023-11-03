@@ -16,6 +16,6 @@ function setView(viewOb) {
 }
 
 //bind events
-$("#lnkDriverLogin").click(function () {
+/*$("#lnkDriverLogin").click(function () {
     setView($("#driverForm"));
-});
+});*/

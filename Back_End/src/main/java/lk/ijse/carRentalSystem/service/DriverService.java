@@ -18,4 +18,6 @@ public interface DriverService {
     void deleteDriver(String id);
 
     DriverDTO findDriverByName(String name);
+
+    boolean checkDriverLogin(String driverId);
 }

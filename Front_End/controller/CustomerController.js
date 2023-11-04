@@ -300,7 +300,7 @@ function checkForBooking() {
             });
             setView($("#bookingForm"));
         }else {
-            alert("login first");
+            setView($("#loginForm"));
         }
     });
 }

@@ -67,6 +67,23 @@ function bookingACar() {
     });
 }
 
+$("#btnRight").click(function () {
+    scrollRight();
+});
+$("#btnLeft").click(function () {
+    scrollLeft();
+});
+
+function scrollRight() {
+    var right = document.querySelector(".test");
+    right.scrollBy(200,0);
+}
+
+function scrollLeft() {
+    var right = document.querySelector(".test");
+    right.scrollBy(-200,0);
+}
+
 function getAllBookingForAdmin() {
     $("#adminBookingView").empty();
 

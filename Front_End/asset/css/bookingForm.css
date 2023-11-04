@@ -37,9 +37,6 @@ header ul>li>a{
 }
 #bookingForm #scroll{
     position: relative;
-    background: url("../img/slide-alternate-1-1.jpg");
-    background-position: center;
-    background-size: cover;
     top: 80px;
     left: 20px;
     height: 300px;
@@ -50,12 +47,34 @@ header ul>li>a{
     overflow: auto;
     scroll-behavior: smooth;
 }
+#bookingForm #btnRight{
+    z-index: 1;
+    position: relative;
+    top: 245px;
+    left: 290px;
+    color: #052c65;
+    border-radius: 100%;
+}
+#bookingForm #btnRight:hover{
+    color: red;
+}
+#bookingForm #btnLeft{
+    position: relative;
+    top: -82px;
+    right: 295px;
+    color: #052c65;
+    border-radius: 100%;
+}
+#bookingForm #btnLeft:hover{
+    color: red;
+}
 .divChild{
     min-width: 290px;
     height: 280px;
     margin: 1px 10px;
     cursor: pointer;
-    border: 1px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 10px;
     overflow: hidden;
 }
 .divChild>img{
@@ -81,16 +100,16 @@ header ul>li>a{
 }
 #bookingForm h3{
     position: relative;
-    top: 110px;
+    top: 90px;
     font-size: 42px;
 }
 #bookingForm table{
     position: relative;
-    top: 130px;
+    top: 100px;
 }
 #bookingForm form{
     position: relative;
-    top: -110px;
+    top: -170px;
     background-color: #efefef;
     height: 62vh;
     border-radius: 10px;

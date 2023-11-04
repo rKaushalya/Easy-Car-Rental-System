@@ -33,9 +33,11 @@ public class MaintenanceServiceImpl implements MaintenanceService {
     }
 
     @Override
-    public void markAsMaintenance(String regNo) {
+    public void markAsMaintenance(long mId, String regNo) {
         Vehicle vehicle = vehicleRepo.getVehicleByRegisterNo(regNo);
         vehicle.setState("Maintenance");
         vehicleRepo.save(vehicle);
+
+        maintenanceRepo.updateMaintenance(mId);
     }
 }

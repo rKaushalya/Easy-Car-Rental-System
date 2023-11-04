@@ -28,5 +28,24 @@ function getAllMaintenance() {
 }
 
 function mBindTrEvents() {
+    $("#tblMaintenance tr button").click(function () {
+        let id = $(this).parent().parent().children().eq(0).text();
+        let regNo = $(this).parent().parent().children().eq(1).text();
+        updateMaintenance(id,regNo);
+    });
+}
 
+function updateMaintenance(id,regNo) {
+    $.ajax({
+        url: BASE_URL + "maintenance?maintenanceId="+id+"&regNo="+regNo,
+        method: 'post',
+        success: function (res) {
+            console.log(res.message);
+            alert(res.message);
+            getAllMaintenance();
+        },
+        error: function (error) {
+            console.log(error)
+        }
+    });
 }

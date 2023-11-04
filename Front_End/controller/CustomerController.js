@@ -201,9 +201,12 @@ function getVehiclesDetails() {
                 let frontView = veh.filePath;
                 console.log(frontView);
 
-                let row = `<tr><td>${brand}</td><td>${type}</td><td>${color}</td><td>${noOfPassenger}</td>
+                let status = veh.state;
+                if (status!=="Maintenance"){
+                    let row = `<tr><td>${brand}</td><td>${type}</td><td>${color}</td><td>${noOfPassenger}</td>
                 <td><img src="${"asset/img/uploads/" + frontView}" width="120px" height="80px"></td></tr>`;
-                $("#tblViewCusVehicle").append(row);
+                    $("#tblViewCusVehicle").append(row);
+                }
             }
             checkForBooking();
         },

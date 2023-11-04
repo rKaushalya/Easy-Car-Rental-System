@@ -18,8 +18,8 @@ public class MaintenanceController {
     }
 
     @PostMapping
-    public ResponseUtil updateVehicleMaintenance(String regNo){
-        maintenanceService.markAsMaintenance(regNo);
+    public ResponseUtil updateVehicleMaintenance(@RequestParam("maintenanceId") long maintenanceId,@RequestParam("regNo") String regNo){
+        maintenanceService.markAsMaintenance(maintenanceId,regNo);
         return new ResponseUtil("Ok","Successfully Updated.! ",regNo);
     }
 }

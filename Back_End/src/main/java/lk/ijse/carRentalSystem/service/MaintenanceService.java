@@ -7,5 +7,5 @@ import java.util.List;
 public interface MaintenanceService {
     List<MaintenanceDTO> getAllMaintenance();
 
-    void markAsMaintenance(String regNo);
+    void markAsMaintenance(long mId, String regNo);
 }

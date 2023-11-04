@@ -55,11 +55,11 @@ function bookingACar() {
         processData: false,
         data: data,
         success: function (res) {
-            getBookingDetailsForCustomer();
             getAllBookingForAdmin();
+            getBookingDetailsForCustomer();
+            getBookCount();
             alert(res.message);
             setView($("#customerBookingViewForm"));
-            getBookCount();
         },
         error: function (error) {
             console.log(error.responseJSON.message);
@@ -181,9 +181,9 @@ function updateBookingState(id, state) {
         processData: false,
         data: data,
         success: function (res) {
+            getBookingDetailsForCustomer();
             getAllBookingForAdmin();
             getBookCount();
-            getBookingDetailsForCustomer();
             alert(res.message);
         },
         error: function (error) {

@@ -1,0 +1,13 @@
+
+#reportForm{
+    position: relative;
+    top: 100px;
+}
+#reportForm table{
+    position: relative;
+    top: 30px;
+}
+#reportForm h1{
+    font-family: Arial;
+    font-size: 30px;
+}

@@ -18,3 +18,16 @@ This is a full-stack Car Rental System that includes both a Spring-based backend
 ## Used Technologies
   ### Frontend
     * HTML 5
+    * Bootstrap
+    * CSS
+    * Jquery
+    * Ajax
+
+  ### Backend
+    * Java
+    * Spring Framework
+    * Hibernate
+    * Maven
+    * Mysql (For Database)
+
+  

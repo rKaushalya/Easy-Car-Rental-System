@@ -11,13 +11,13 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="Back_End_With_Spring" />
+          <element id="module-output" name="Back_End_With_Spring-Boot" />
         </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/Back_End_With_Spring/target/Back_End_With_Spring-1.0.0/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="Back_End_With_Spring/web/Web" />
+      <element id="javaee-facet-resources" facet="Back_End_With_Spring-Boot/web/Web" />
     </root>
   </artifact>
 </component>
